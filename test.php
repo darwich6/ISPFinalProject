@@ -120,7 +120,7 @@ if(isset($_POST["delete"]))
 	header("refresh:0;");
 }
 
-$sql = "SELECT Subject_Number, Course_Number, Course_Name, Credits, Mathematics_Statistics_Logic, Speaking, Writing_First_Course, Writing_Second_Course, Arts, Humanities, Natural_Science, Natural_Science_LAB, Social_Science, Domestic_Diversity, Global_Diversity, Capstone, Complex_Issues_Facing_Society FROM GenEd";
+$sql = "SELECT Subject_Number, Course_Number, Course_Name, Credits, Mathematics_Statistics_Logic, Speaking, Writing_First_Course, Writing_Second_Course, Arts, Humanities, Natural_Science, Natural_Science_LAB, Social_Science, Domestic_Diversity, Global_Diversity, Capstone, Complex_Issues_Facing_Society FROM courselist";
 $result = $conn->query($sql);
 
 if ($result-> num_rows > 0) {
@@ -312,7 +312,7 @@ $conn->close();
 	<span id="calc1" style="color: red;"></span><br>
   </div>
   <div class="core">
-  <h5 style="font-family: sarif;">SYSTEMS CORE COURSES</h5>
+  <h5 style="font-family: sarif;">CS - SYSTEMS CORE COURSES</h5>
     <span id="datastructures" style="color: red;"></span><br>
     <span id="isp" style="color: red;"></span><br>
     <span id="oop" style="color: red;"></span><br>
@@ -421,6 +421,84 @@ var discretemath = compsci1 = compsci2 = calc1 = datastructures = isp = oop = al
             
 for(var i = 1; i < table.rows.length; i++)
 {
+	if(table.rows[i].cells[0].innerHTML == "3450")
+	{
+		if(table.rows[i].cells[1].innerHTML == "208")
+		{
+			discretemath = discretemath + 1;
+		}
+		if(table.rows[i].cells[1].innerHTML == "221")
+		{
+			calc1 = calc1 + 1;
+		}
+		if(table.rows[i].cells[1].innerHTML == "222")
+		{
+			calc2 = calc2 + 1;
+		}
+	}
+	if(table.rows[i].cells[0].innerHTML == "3460")
+	{
+		if(table.rows[i].cells[1].innerHTML == "209")
+		{
+			compsci1 = compsci1 + 1;
+		}
+		if(table.rows[i].cells[1].innerHTML == "210")
+		{
+			compsci2 = compsci2 + 1;
+		}
+		if(table.rows[i].cells[1].innerHTML == "316")
+		{
+			datastructures = datastructures + 1;
+		}
+		if(table.rows[i].cells[1].innerHTML == "307")
+		{
+			isp = isp + 1;
+		}
+		if(table.rows[i].cells[1].innerHTML == "421")
+		{
+			oop = oop + 1;
+		}
+		if(table.rows[i].cells[1].innerHTML == "435")
+		{
+			algorithms = algorithms + 1;
+		}	
+		if(table.rows[i].cells[1].innerHTML == "480")
+		{
+			softengi = softengi + 1;
+		}
+		if(table.rows[i].cells[1].innerHTML == "490")
+		{
+			seminar = seminar + 1;
+		}
+		if(table.rows[i].cells[1].innerHTML == "426")
+		{
+			os = os + 1;
+		}
+
+	}
+	if(table.rows[i].cells[0].innerHTML == "3470")
+	{
+		if(table.rows[i].cells[1].innerHTML == "401")
+		{
+			stats = stats + 1;
+		}
+		if(table.rows[i].cells[1].innerHTML == "461")
+		{
+			stats = stats + 1;
+		}
+	}
+	if(table.rows[i].cells[0].innerHTML == "4450")
+	{
+		if(table.rows[i].cells[1].innerHTML == "320")
+		{
+			compsys = compsys + 1;
+		}
+		if(table.rows[i].cells[1].innerHTML == "325")
+		{
+			os = os + 1;
+		}
+	}
+	
 	for(var k = 4; k < table.rows[i].cells.length; k++)
 	{
 		if(k == 4 && parseInt(table.rows[i].cells[k].innerHTML) == 1)
