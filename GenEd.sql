@@ -5,7 +5,7 @@ CREATE TABLE GenEd (
   Course_Number INT(3),
   Course_Name CHAR(100),
   Credits DOUBLE,
-  Mathematic_Statistics_Logic BOOLEAN,
+  Mathematics_Statistics_Logic BOOLEAN,
   Speaking BOOLEAN,
   Writing_First_Course BOOLEAN,
   Writing_Second_Course BOOLEAN,
