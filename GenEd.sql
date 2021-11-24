@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS GenEd;
 
 CREATE TABLE GenEd (
-  Subject_Number INT(4) NOT NULL AUTO_INCREMENT,
+  Subject_Number INT(4) NOT NULL,
   Course_Number INT(3),
   Course_Name CHAR(100),
   Credits DOUBLE,
