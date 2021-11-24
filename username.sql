@@ -1,11 +1,11 @@
-DROP TABLE IF EXISTS User;
+DROP TABLE IF EXISTS Username;
 
-CREATE TABLE User(
+CREATE TABLE Username(
   Subject_Number INT(4) NOT NULL,
   Course_Number INT(3),
   Course_Name CHAR(100),
   Credits DOUBLE,
-  Mathematic_Statistics_Logic BOOLEAN,
+  Mathematics_Statistics_Logic BOOLEAN,
   Speaking BOOLEAN,
   Writing_First_Course BOOLEAN,
   Writing_Second_Course BOOLEAN,
