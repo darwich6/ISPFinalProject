@@ -127,7 +127,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "root";
 $dbname = "isp";
 
 
@@ -363,7 +363,7 @@ $conn->close();
 </div>
 </div>
 
-<p id="debug"></p>
+<p id="debug" style="position: absolute;"></p>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -472,6 +472,34 @@ for(var i = 1; i < table.rows.length; i++)
 		{
 			calc2 = calc2 + 1;
 		}
+		if(table.rows[i].cells[1].innerHTML == "312")
+		{
+			electives = electives + 3;
+		}
+		if(table.rows[i].cells[1].innerHTML == "410")
+		{
+			electives = electives + 3;
+		}
+		if(table.rows[i].cells[1].innerHTML == "415")
+		{
+			electives = electives + 3;
+		}
+		if(table.rows[i].cells[1].innerHTML == "427")
+		{
+			electives = electives + 3;
+		}
+		if(table.rows[i].cells[1].innerHTML == "428")
+		{
+			electives = electives + 3;
+		}
+		if(table.rows[i].cells[1].innerHTML == "430")
+		{
+			electives = electives + 3;
+		}
+		if(table.rows[i].cells[1].innerHTML == "436")
+		{
+			electives = electives + 3;
+		}
 	}
 	
 	if(table.rows[i].cells[0].innerHTML == "3460")
@@ -511,6 +539,10 @@ for(var i = 1; i < table.rows.length; i++)
 		if(table.rows[i].cells[1].innerHTML == "426")
 		{
 			os = os + 1;
+		}
+		if(table.rows[i].cells[1].innerHTML == "395")
+		{
+			electives = electives + 3;
 		}
 	}
 	
@@ -596,8 +628,88 @@ for(var i = 1; i < table.rows.length; i++)
 		{
 			os = os + 1;
 		}
+		if(table.rows[i].cells[1].innerHTML == "410")
+		{
+			electives = electives + 3;
+		}
+		if(table.rows[i].cells[1].innerHTML == "415")
+		{
+			electives = electives + 3;
+		}
+		if(table.rows[i].cells[1].innerHTML == "420")
+		{
+			electives = electives + 3;
+		}
+		if(table.rows[i].cells[1].innerHTML == "422")
+		{
+			electives = electives + 3;
+		}
+		if(table.rows[i].cells[1].innerHTML == "427")
+		{
+			electives = electives + 3;
+		}
+		if(table.rows[i].cells[1].innerHTML == "440")
+		{
+			electives = electives + 3;
+		}
+		if(table.rows[i].cells[1].innerHTML == "462")
+		{
+			electives = electives + 3;
+		}
+		if(table.rows[i].cells[1].innerHTML == "465")
+		{
+			electives = electives + 3;
+		}
+		if(table.rows[i].cells[1].innerHTML == "467")
+		{
+			electives = electives + 3;
+		}
 	}
-	
+
+	if(table.rows[i].cells[0].innerHTML == "2440")
+	{
+		if(table.rows[i].cells[1].innerHTML == "204")
+		{
+			electives = electives + 3;
+		}
+	}
+
+	if(table.rows[i].cells[0].innerHTML == "3350")
+	{
+		if(table.rows[i].cells[1].innerHTML == "405")
+		{
+			electives = electives + 3;
+		}
+		if(table.rows[i].cells[1].innerHTML = "407")
+		{
+			electives = electives + 3;
+		}
+	}
+
+	if(table.rows[i].cells[0].innerHTML == "3470")
+	{
+		if(table.rows[i].cells[1].innerHTML == "480")
+		{
+			electives = electives + 3;
+		}
+	}
+
+	if(table.rows[i].cells[0].innerHTML == "4800")
+	{
+		if(table.rows[i].cells[1].innerHTML == "420")
+		{
+			electives = electives + 3;
+		}
+	}
+
+	if(table.rows[i].cells[0].innerHTML == "7100")
+	{
+		if(table.rows[i].cells[1].innerHTML == "489")
+		{
+			electives = electives + 3;
+		}
+	}
+
 	for(var k = 4; k < table.rows[i].cells.length; k++)
 	{
 		if(k == 4 && parseInt(table.rows[i].cells[k].innerHTML) == 1)
@@ -654,6 +766,7 @@ for(var i = 1; i < table.rows.length; i++)
 			capcomplex = capcomplex + 1;
 		}				
 	}
+
     sumVal = sumVal + parseFloat(table.rows[i].cells[3].innerHTML);
 }
 
