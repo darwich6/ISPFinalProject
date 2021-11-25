@@ -4,24 +4,46 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <h1>
-     <span style="color:#041e42">CS Course</span>
+     <span style="color:#041e42">CS-Systems Course</span>
      <span style="color:#e7e2d4">Tracker 2021</span>
     </h1>
   <title>CS Course Tracker 2021</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <style>  
-  	* {
-		box-sizing: border-box;
+  
+    .tl { 
+	    position: absolute; 
+		top: 5%; 
+		left: 0; 
+		right: 50%; 
+		bottom: 50%;  
 	}
-	.row {
-		margin-left:-5px;
-		margin-right:-5px;
+    .tr { 
+	    position: absolute; 
+		top: 5%; 
+		left: 50%; 
+		right: 0; 
+		bottom: 50%; 
 	}
-	.column {
-		float: left;
-		width: 50%;
-		padding: 5px;
-	}
+    .bl {
+	   	float: left;
+		padding: 10px;		
+	    position: absolute; 
+	    top: 45%; 
+		left: 0; 
+		right: 50%; 
+		bottom: 0; 
+     }
+    .br { 
+	    float: left;
+		padding: 10px;
+	    position: absolute; 
+		top: 45%; 
+		left: 50%; 
+		right: 0; 
+		bottom: 0; 
+    } 
+
     h1 {
 		font-family: fantasy;
 		text-align: center;
@@ -34,6 +56,7 @@
 		text-align: left;
 		overflow-y:scroll;
   		height:300px;
+		width: 100%;
    		display:block;	
 	}
 	
@@ -58,7 +81,7 @@
 	}
     
 	label {
-		font-size: 17px;
+		font-size: 14px;
 	}
 	
 	input[type=text], select {
@@ -69,16 +92,21 @@
 		border-radius: 4px;
 		box-sizing: border-box;
 	}
-	.container {
-	   	float: left;
-		width: 50%;
+	.creditoptions {
+		size: 1;
 	}
-	.progress-container {
+	.formcontainer {
+	   	float: left;
+		padding: 10px;
+	}
+	.progresscontainer {
 	    border: 3px solid #fff;
         padding: 20px;		
+		backgroundimage
 	}
 	.progress-child {
-	    width: 25%;
+		
+	    width: 50%;
         float: left;
         padding: 20px;
         border: 2px solid black;		
@@ -86,8 +114,8 @@
   </style>
 </head>
 <body>
-<div class="row">
-  <div class="column">
+<div class="top">
+  <div class="tl">
   <h2>Course List</h2>
    <table id="courselist">
   	<tr>
@@ -152,7 +180,7 @@ if ($result-> num_rows > 0) {
 }
 ?>
   </div>
-  <div class='column'>
+  <div class='tr'>
   <h2>My Courses</h2>
    <table id="mycourses">
     <tr>
@@ -198,7 +226,7 @@ $conn->close();
   </div>
 </div>
 
-<div class="container">
+<div class="bl">
 <div class="usr-form">
   <h2></h2>
   <form action="http://localhost/isp/TermProject/test.php" name="coursetrackerform" method="post">
@@ -220,64 +248,64 @@ $conn->close();
 	</div>
 	<button type="submit" name="add" class="btn-def">Add Course</button>
 	<button type="submit" name="delete" class="btn-def">Delete Course</button>
-	<br><br><br>
+	<br><br>
 	<h2>Credit Options<h2>
 	<div class="form-group">
-	  <label for="req1">Mathematics Statistics Logic:</label>
-	  <input type="text" class="form-control" id="req1" placeholder="Enter 1 or 0" name="req1">
+	  <label for="req1">Mathematics, Statistics, and Logic:</label>
+	  <input type="text" class="form-control" id="req1" placeholder="Enter 1 or 0" name="req1" maxlength="1">
 	</div>
 	<div class="form-group">
 	  <label for="req2">Speaking:</label>
-	  <input type="text" class="form-control" id="req2" placeholder="Enter 1 or 0" name="req2">
+	  <input type="text" class="form-control" id="req2" placeholder="Enter 1 or 0" name="req2" maxlength="1">
 	</div>
 	<div class="form-group">
 	  <label for="req3">Writing First Course:</label>
-	  <input type="text" class="form-control" id="req3" placeholder="Enter 1 or 0" name="req3">
+	  <input type="text" class="form-control" id="req3" placeholder="Enter 1 or 0" name="req3" maxlength="1">
 	</div>
 	<div class="form-group">
 	  <label for="req4">Writing Second Course:</label>
-	  <input type="text" class="form-control" id="req4" placeholder="Enter 1 or 0" name="req4">
+	  <input type="text" class="form-control" id="req4" placeholder="Enter 1 or 0" name="req4" maxlength="1">
 	</div>
 	<div class="form-group">
 	  <label for="req5">Fine Arts and Humanities:</label>
-	  <input type="text" class="form-control" id="req5" placeholder="Enter 1 or 0" name="req5">
+	  <input type="text" class="form-control" id="req5" placeholder="Enter 1 or 0" name="req5" maxlength="1">
 	</div>
 	<div class="form-group">
 	  <label for="req6">Humanities:</label>
-	  <input type="text" class="form-control" id="req6" placeholder="Enter 1 or 0" name="req6">
+	  <input type="text" class="form-control" id="req6" placeholder="Enter 1 or 0" name="req6" maxlength="1">
 	</div>
 	<div class="form-group">
 	  <label for="req7">Natural Science:</label>
-	  <input type="text" class="form-control" id="req7" placeholder="Enter 1 or 0" name="req7">
+	  <input type="text" class="form-control" id="req7" placeholder="Enter 1 or 0" name="req7" maxlength="1">
 	</div>
 	<div class="form-group">
-	  <label for="req8">Natural Science Lab:</label>
-	  <input type="text" class="form-control" id="req8" placeholder="Enter 1 or 0" name="req8">
+	  <label for="req8">Natural Science w/Lab:</label>
+	  <input type="text" class="form-control" id="req8" placeholder="Enter 1 or 0" name="req8" maxlength="1">
 	</div>
 	<div class="form-group">
 	  <label for="req9">Social Science:</label>
-	  <input type="text" class="form-control" id="req9" placeholder="Enter 1 or 0" name="req9">
+	  <input type="text" class="form-control" id="req9" placeholder="Enter 1 or 0" name="req9" maxlength="1">
 	</div>
 	<div class="form-group">
 	  <label for="req10">Domestic Diversity:</label>
-	  <input type="text" class="form-control" id="req10" placeholder="Enter 1 or 0" name="req10">
+	  <input type="text" class="form-control" id="req10" placeholder="Enter 1 or 0" name="req10" maxlength="1">
 	</div>
 	<div class="form-group">
 	  <label for="req11">Global Diversity:</label>
-	  <input type="text" class="form-control" id="req11" placeholder="Enter 1 or 0" name="req11">
+	  <input type="text" class="form-control" id="req11" placeholder="Enter 1 or 0" name="req11" maxlength="1">
 	</div>
 	<div class="form-group">
 	  <label for="req12">Capstone:</label>
-	  <input type="text" class="form-control" id="req12" placeholder="Enter 1 or 0" name="req12">
+	  <input type="text" class="form-control" id="req12" placeholder="Enter 1 or 0" name="req12" maxlength="1">
 	</div>
 	<div class="form-group">
 	  <label for="req13">Complex Issues Facing Society:</label>
-	  <input type="text" class="form-control" id="req13" placeholder="Enter 1 or 0" name="req13">
+	  <input type="text" class="form-control" id="req13" placeholder="Enter 1 or 0" name="req13" maxlength="1">
 	</div>	
   </form>
 </div>
 </div>
-<div class="progresscontainer">
+<div class="br">
 <div class="progress-child" style="font-size: 15px; font-family: sarif;">
   <div class="criteria1">
     <h5 style="font-family: sarif;">ACADEMIC FOUNDATIONS</h5>
@@ -299,9 +327,13 @@ $conn->close();
   </div>
   <div class="criteria4">
     <h5 style="font-family: sarif;">INTEGRATED AND APPLIED LEARNING</h5>
-    <span id="capcomplex" style="color: red;"></span><br><br><br>
+    <span id="capcomplex" style="color: red;"></span><br>
   </div>
-  <span id="totalcreditstaken" style="color: red; font-weight: bold;"></span><br>
+  <div class="criteria5">
+    <h5 style="font-family: sarif;">LANGUAGE REQUIREMENT</h5>
+    <span id="langreq" style="color: red;"></span><br><br>
+  </div>
+  <span id="totalcreditstaken" style="color: red; font-weight: bold; font-size: 24px"></span><br>
 </div>
 <div class="progress-child" style="font-size: 15px; font-family: sarif;">
   <div class="preadmission">
@@ -330,6 +362,9 @@ $conn->close();
   </div>
 </div>
 </div>
+
+<p id="debug"></p>
+
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -340,7 +375,6 @@ $conn->close();
 <script>
 $("table tr").click(function()
 {
-	
     if ($(this).hasClass("selected"))
 	{
         $(this).removeClass("selected");
@@ -415,8 +449,11 @@ function narrowList()
   }
 }
 
+
 var table = document.getElementById("mycourses"), sumVal = 0.0;
 var mathstatslogic = speaking = writing1 = writing2 = arts = humanities = natscience = natsciencelab = socscience = domesticdiv = globaldiv = capcomplex = 0.0;
+var french = german = spanish = 0.0;
+var langreq = "Incomplete";
 var discretemath = compsci1 = compsci2 = calc1 = datastructures = isp = oop = algorithms = softengi = seminar = compsys = os = calc2 = stats = electives = 0.0;
             
 for(var i = 1; i < table.rows.length; i++)
@@ -436,6 +473,7 @@ for(var i = 1; i < table.rows.length; i++)
 			calc2 = calc2 + 1;
 		}
 	}
+	
 	if(table.rows[i].cells[0].innerHTML == "3460")
 	{
 		if(table.rows[i].cells[1].innerHTML == "209")
@@ -474,8 +512,68 @@ for(var i = 1; i < table.rows.length; i++)
 		{
 			os = os + 1;
 		}
-
 	}
+	
+	if(table.rows[i].cells[0].innerHTML == "3520")
+	{
+		if(table.rows[i].cells[1].innerHTML == "101")
+		{
+			french = french + 1;
+		}
+		if(table.rows[i].cells[1].innerHTML == "102")
+		{
+			french = french + 1;
+		}
+		if(table.rows[i].cells[1].innerHTML == "201")
+		{
+			french = french + 1;
+		}
+		if(table.rows[i].cells[1].innerHTML == "202")
+		{
+			french = french + 1;
+		}		
+	}
+	
+	if(table.rows[i].cells[0].innerHTML == "3530")
+	{
+		if(table.rows[i].cells[1].innerHTML == "101")
+		{
+			german = german + 1;
+		}
+		if(table.rows[i].cells[1].innerHTML == "102")
+		{
+			german = german + 1;
+		}
+		if(table.rows[i].cells[1].innerHTML == "201")
+		{
+			german = german + 1;
+		}
+		if(table.rows[i].cells[1].innerHTML == "202")
+		{
+			german = german + 1;
+		}		
+	}
+	
+	if(table.rows[i].cells[0].innerHTML == "3580")
+	{
+		if(table.rows[i].cells[1].innerHTML == "101")
+		{
+			spanish = spanish + 1;
+		}
+		if(table.rows[i].cells[1].innerHTML == "102")
+		{
+			spanish = spanish + 1;
+		}
+		if(table.rows[i].cells[1].innerHTML == "201")
+		{
+			spanish = spanish + 1;
+		}
+		if(table.rows[i].cells[1].innerHTML == "202")
+		{
+			spanish = spanish + 1;
+		}		
+	}
+	
 	if(table.rows[i].cells[0].innerHTML == "3470")
 	{
 		if(table.rows[i].cells[1].innerHTML == "401")
@@ -487,6 +585,7 @@ for(var i = 1; i < table.rows.length; i++)
 			stats = stats + 1;
 		}
 	}
+	
 	if(table.rows[i].cells[0].innerHTML == "4450")
 	{
 		if(table.rows[i].cells[1].innerHTML == "320")
@@ -557,6 +656,7 @@ for(var i = 1; i < table.rows.length; i++)
 	}
     sumVal = sumVal + parseFloat(table.rows[i].cells[3].innerHTML);
 }
+
 if(mathstatslogic >= 3)
 {
 	document.getElementById("mathstatslogic").style.color = "green";
@@ -596,6 +696,11 @@ if(globaldiv >= 1)
 if(capcomplex >= 1)
 {
 	document.getElementById("capcomplex").style.color = "green";
+}
+if(french == 4 || german == 4 || spanish == 4)
+{
+	langreq = "Complete";
+	document.getElementById("langreq").style.color = "green";
 }
 if(sumVal >= 120)
 {
@@ -672,6 +777,7 @@ document.getElementById("socscience").innerHTML = "Social Science: " + socscienc
 document.getElementById("domesticdiv").innerHTML = "Domestic Diversity: " + domesticdiv + "/1 Courses";
 document.getElementById("globaldiv").innerHTML = "Global Diversity: " + globaldiv + "/1 Courses";
 document.getElementById("capcomplex").innerHTML = "Capstone or Complex Issues Facing Society: " + capcomplex + "/1 Courses";
+document.getElementById("langreq").innerHTML = "2-Year Language Requirement: " + langreq;
 document.getElementById("totalcreditstaken").innerHTML = "Total Credits Taken: " + sumVal + "/120";
 
 document.getElementById("discretemath").innerHTML = "Intro to Discrete Math: " + discretemath + "/1 Courses";
