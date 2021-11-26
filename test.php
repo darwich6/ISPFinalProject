@@ -4,71 +4,95 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <h1>
-     <span style="color:#041e42">CS-Systems Course</span>
-     <span style="color:#e7e2d4">Tracker 2021</span>
+		<center>
+     	<span style="color:#A89968">CS-Systems Course</span>
+     	<span style="color:#A89968">Tracker 2021</span>
+		</center>	
     </h1>
   <title>CS Course Tracker 2021</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <style>  
-  
-    .tl { 
-	    position: absolute; 
-		top: 5%; 
-		left: 0; 
-		right: 50%; 
-		bottom: 50%;  
-	}
-    .tr { 
-	    position: absolute; 
-		top: 5%; 
-		left: 50%; 
-		right: 0; 
-		bottom: 50%; 
-	}
-    .bl {
-	   	float: left;
-		padding: 10px;		
-	    position: absolute; 
-	    top: 45%; 
-		left: 0; 
-		right: 50%; 
-		bottom: 0; 
-     }
-    .br { 
-	    float: left;
-		padding: 10px;
-	    position: absolute; 
-		top: 45%; 
-		left: 50%; 
-		right: 0; 
-		bottom: 0; 
-    } 
-
-    h1 {
-		font-family: fantasy;
-		text-align: center;
-		font-size: 45px;
-	}
-  
-    table {
-		font-family: monospace;
-		font-size: 25px;
-		text-align: left;
-		overflow-y:scroll;
-  		height:300px;
-		width: 100%;
-   		display:block;	
-	}
 	
-	th {
-		background-color: #041e42;
+	body{
+		font-family: monospace;
+	}
+
+	.top { 
+		text-align: center;
+	}
+  
+	.courseListDiv {
+		padding: auto;
+		text-align: center;
+		width:47%;
+		font-family: monospace;
+		font-size: 13px;
+		overflow-y:scroll;
+		height:350px;
+		display: inline-block;
+		float: left;
+	}
+	.myCoursesDiv {
+		padding: auto;
+		text-align: center;
+		width:47%;
+		font-family: monospace;
+		font-size: 13px;
+		overflow-y:scroll;
+		height:350px;
+		display: inline-block;
+		float:right;
+	}
+
+	tr:nth-child(even) { background-color: #A89968; }
+	tr:nth-child(odd) { 
+		background-color: #041E99;
 		color: white;
 	}
-	
-	tr:nth-child(even) { background-color: #e7e2d4; }
 	tr:hover { background-color: #b2b1c7; }
 	tr.selected { background-color: #ff8800; }
+
+	.userSearchForm{
+		padding: auto;
+		text-align: center;
+		width:47%;
+		font-family: monospace;
+		font-size: 13px;
+		height:500px;
+		display: inline-block;
+		overflow-y:scroll;
+		float:left;
+	}
+	.userInputForm{
+		padding: auto;
+		text-align: center;
+		width:47%;
+		font-family: monospace;
+		font-size: 13px;
+		height:450px;
+		display: inline-block;
+		float:right;
+		overflow-y:scroll;
+	}
 	
+	label{
+		font-family: monospace;
+		font-size: 13px;
+	}
+	
+	h2{
+		font-family: monospace;
+	}
+
+	h5{
+		font-family: monospace;
+	}
+
+	p{
+		font-family: monospace;
+		font-size: 13px;
+	}
+
 	.btn-def {
 		background-color: #041e42;
 		border: none;
@@ -79,291 +103,296 @@
 		margin: 4px 2px;
 		cursor: pointer;
 	}
-    
-	label {
-		font-size: 14px;
-	}
-	
-	input[type=text], select {
-		padding: 12px 20px;
-		margin: 6px 0;
+
+	.progress-child1{
+		padding: auto;
+		width:47%;
+		font-family: monospace;
+		font-size: 13px;
+		height:500px;
 		display: inline-block;
-		border: 1px solid #ccc;
-		border-radius: 4px;
-		box-sizing: border-box;
+		margin-left: 7%;
 	}
-	.creditoptions {
-		size: 1;
+
+	.progress-child2{
+		padding: auto;
+		width:47%;
+		font-family: monospace;
+		font-size: 13px;
+		height:500px;
+		display: inline-block;
+		float:right;
+		position: absolute;
 	}
-	.formcontainer {
-	   	float: left;
-		padding: 10px;
-	}
-	.progresscontainer {
-	    border: 3px solid #fff;
-        padding: 20px;		
-		backgroundimage
-	}
-	.progress-child {
-		
-	    width: 50%;
-        float: left;
-        padding: 20px;
-        border: 2px solid black;		
-	}
+
+
   </style>
 </head>
 <body>
 <div class="top">
-  <div class="tl">
-  <h2>Course List</h2>
-   <table id="courselist">
-  	<tr>
-	   <th>Subject</th>
-	   <th>Course</th>
-	   <th>Name</th>
-	   <th>Credits</th>
-    </tr>
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "isp";
+	<h4> Authors: Ahmed Darwich, Zach Pallota, John Dailey </h4>
+</div>
+	<!-- div class tl is now courseListDiv -->
+    <div class="courseListDiv">
+    	<h2>Course List</h2>
+    	<table id="courseList">
+  		<tr class="courseListTableRow">
+	   		<th>Subject Number</th>
+	   		<th>Course Number</th>
+	   		<th>Course Name</th>
+	   		<th>Credits</th>
+    	</tr>
+		<?php
+		$servername = "localhost";
+		$username = "root";
+		$password = "root";
+		$dbname = "isp";
 
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+	$conn = new mysqli($servername, $username, $password, $dbname);
 
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
-if(isset($_POST["add"]))
-{
-	mysqli_query($conn, "insert into username values('$_POST[subjectnumber]','$_POST[coursenumber]','$_POST[coursename]','$_POST[coursecredits]','$_POST[req1]','$_POST[req2]','$_POST[req3]','$_POST[req4]','$_POST[req5]','$_POST[req6]','$_POST[req7]','$_POST[req8]','$_POST[req9]','$_POST[req10]','$_POST[req11]','$_POST[req12]','$_POST[req13]')");
-	header("refresh:0;");
-}
-if(isset($_POST["delete"]))
-{
-	mysqli_query($conn, "delete from username where Subject_Number='$_POST[subjectnumber]' and Course_Number='$_POST[coursenumber]'");
-	header("refresh:0;");
-}
-
-$sql = "SELECT Subject_Number, Course_Number, Course_Name, Credits, Mathematics_Statistics_Logic, Speaking, Writing_First_Course, Writing_Second_Course, Arts, Humanities, Natural_Science, Natural_Science_LAB, Social_Science, Domestic_Diversity, Global_Diversity, Capstone, Complex_Issues_Facing_Society FROM courselist";
-$result = $conn->query($sql);
-
-if ($result-> num_rows > 0) {
-	while ($row = $result-> fetch_assoc()) 
+	if ($conn->connect_error) 
 	{
-		echo "<tr onclick='javascript:fillFields(this);'>";
-		echo "<td>" . $row['Subject_Number'] . "</td>";
-		echo "<td>" . $row['Course_Number'] . "</td>";
-		echo "<td>" . $row['Course_Name'] . "</td>";
-		echo "<td>" . $row['Credits'] . "</td>";
-		echo "<td style='display:none;'>" . $row['Mathematics_Statistics_Logic'] . "</td>";
-		echo "<td style='display:none;'>" . $row['Speaking'] . "</td>";
-		echo "<td style='display:none;'>" . $row['Writing_First_Course'] . "</td>";
-		echo "<td style='display:none;'>" . $row['Writing_Second_Course'] . "</td>";
-		echo "<td style='display:none;'>" . $row['Arts'] . "</td>";
-		echo "<td style='display:none;'>" . $row['Humanities'] . "</td>";
-		echo "<td style='display:none;'>" . $row['Natural_Science'] . "</td>";
-		echo "<td style='display:none;'>" . $row['Natural_Science_LAB'] . "</td>";
-		echo "<td style='display:none;'>" . $row['Social_Science'] . "</td>";
-		echo "<td style='display:none;'>" . $row['Domestic_Diversity'] . "</td>";
-		echo "<td style='display:none;'>" . $row['Global_Diversity'] . "</td>";
-		echo "<td style='display:none;'>" . $row['Capstone'] . "</td>";
-		echo "<td style='display:none;'>" . $row['Complex_Issues_Facing_Society'] . "</td>";
-		echo "</tr>";
+  		die("Connection failed: " . $conn->connect_error);
 	}
-	echo "</table>"; 
-} else {
-	echo "0 Results found";
-}
-?>
-  </div>
-  <div class='tr'>
-  <h2>My Courses</h2>
-   <table id="mycourses">
-    <tr>
-       <th>Subject</th>
-       <th>Course</th>
-       <th>Name</th>
-       <th>Credits</th>
-    </tr>
-<?php
-$sql = "SELECT Subject_Number, Course_Number, Course_Name, Credits, Mathematics_Statistics_Logic, Speaking, Writing_First_Course, Writing_Second_Course, Arts, Humanities, Natural_Science, Natural_Science_LAB, Social_Science, Domestic_Diversity, Global_Diversity, Capstone, Complex_Issues_Facing_Society FROM username";
-$result = $conn->query($sql);
 
-if ($result-> num_rows > 0) {
-	while ($row = $result-> fetch_assoc()) 
+	if(isset($_POST["add"]))
 	{
-		echo "<tr onclick='javascript:fillFields(this);'>";
-		echo "<td>" . $row['Subject_Number'] . "</td>";
-		echo "<td>" . $row['Course_Number'] . "</td>";
-		echo "<td>" . $row['Course_Name'] . "</td>";
-		echo "<td>" . $row['Credits'] . "</td>";
-		echo "<td style='display:none;'>" . $row['Mathematics_Statistics_Logic'] . "</td>";
-		echo "<td style='display:none;'>" . $row['Speaking'] . "</td>";
-		echo "<td style='display:none;'>" . $row['Writing_First_Course'] . "</td>";
-		echo "<td style='display:none;'>" . $row['Writing_Second_Course'] . "</td>";
-		echo "<td style='display:none;'>" . $row['Arts'] . "</td>";
-		echo "<td style='display:none;'>" . $row['Humanities'] . "</td>";
-		echo "<td style='display:none;'>" . $row['Natural_Science'] . "</td>";
-		echo "<td style='display:none;'>" . $row['Natural_Science_LAB'] . "</td>";
-		echo "<td style='display:none;'>" . $row['Social_Science'] . "</td>";
-		echo "<td style='display:none;'>" . $row['Domestic_Diversity'] . "</td>";
-		echo "<td style='display:none;'>" . $row['Global_Diversity'] . "</td>";
-		echo "<td style='display:none;'>" . $row['Capstone'] . "</td>";
-		echo "<td style='display:none;'>" . $row['Complex_Issues_Facing_Society'] . "</td>";
-		echo "</tr>";
+		mysqli_query($conn, "insert into username values('$_POST[subjectnumber]','$_POST[coursenumber]','$_POST[coursename]','$_POST[coursecredits]','$_POST[req1]','$_POST[req2]','$_POST[req3]','$_POST[req4]','$_POST[req5]','$_POST[req6]','$_POST[req7]','$_POST[req8]','$_POST[req9]','$_POST[req10]','$_POST[req11]','$_POST[req12]','$_POST[req13]')");
+		header("refresh:0;");
 	}
-	echo "</table>"; 
-} else {
-	echo "0 Results found";
-}
 
-$conn->close();
-?>
-  </div>
-</div>
+	if(isset($_POST["delete"]))
+	{
+		mysqli_query($conn, "delete from username where Subject_Number='$_POST[subjectnumber]' and Course_Number='$_POST[coursenumber]'");
+		header("refresh:0;");
+	}
 
-<div class="bl">
-<div class="usr-form">
-  <h2></h2>
-  <form action="http://localhost/isp/TermProject/test.php" name="coursetrackerform" method="post">
-    <div class="form-group">
-	  <label for="subjectnumber">Subject Number:</label>
-	  <input type="text" class="form-control" id="subjectnumber" onkeyup="narrowList()" placeholder="Enter Subject" name="subjectnumber">
-	</div>
-    <div class="form-group">
-	  <label for="coursenumber">Course Number:</label>
-	  <input type="text" class="form-control" id="coursenumber" placeholder="Enter Course Number" name="coursenumber">
-	</div>
-    <div class="form-group">
-	  <label for="coursename">Course Name:</label>
-	  <input type="text" class="form-control" id="coursename" placeholder="Enter Course Name" name="coursename">
-	</div> 
-    <div class="form-group">
-	  <label for="credits">Credits:</label>
-	  <input type="text" class="form-control" id="coursecredits" placeholder="Enter Credits" name="coursecredits">
-	</div>
-	<button type="submit" name="add" class="btn-def">Add Course</button>
-	<button type="submit" name="delete" class="btn-def">Delete Course</button>
-	<br><br>
-	<h2>Credit Options<h2>
-	<div class="form-group">
-	  <label for="req1">Mathematics, Statistics, and Logic:</label>
-	  <input type="text" class="form-control" id="req1" placeholder="Enter 1 or 0" name="req1" maxlength="1">
-	</div>
-	<div class="form-group">
-	  <label for="req2">Speaking:</label>
-	  <input type="text" class="form-control" id="req2" placeholder="Enter 1 or 0" name="req2" maxlength="1">
-	</div>
-	<div class="form-group">
-	  <label for="req3">Writing First Course:</label>
-	  <input type="text" class="form-control" id="req3" placeholder="Enter 1 or 0" name="req3" maxlength="1">
-	</div>
-	<div class="form-group">
-	  <label for="req4">Writing Second Course:</label>
-	  <input type="text" class="form-control" id="req4" placeholder="Enter 1 or 0" name="req4" maxlength="1">
-	</div>
-	<div class="form-group">
-	  <label for="req5">Fine Arts and Humanities:</label>
-	  <input type="text" class="form-control" id="req5" placeholder="Enter 1 or 0" name="req5" maxlength="1">
-	</div>
-	<div class="form-group">
-	  <label for="req6">Humanities:</label>
-	  <input type="text" class="form-control" id="req6" placeholder="Enter 1 or 0" name="req6" maxlength="1">
-	</div>
-	<div class="form-group">
-	  <label for="req7">Natural Science:</label>
-	  <input type="text" class="form-control" id="req7" placeholder="Enter 1 or 0" name="req7" maxlength="1">
-	</div>
-	<div class="form-group">
-	  <label for="req8">Natural Science w/Lab:</label>
-	  <input type="text" class="form-control" id="req8" placeholder="Enter 1 or 0" name="req8" maxlength="1">
-	</div>
-	<div class="form-group">
-	  <label for="req9">Social Science:</label>
-	  <input type="text" class="form-control" id="req9" placeholder="Enter 1 or 0" name="req9" maxlength="1">
-	</div>
-	<div class="form-group">
-	  <label for="req10">Domestic Diversity:</label>
-	  <input type="text" class="form-control" id="req10" placeholder="Enter 1 or 0" name="req10" maxlength="1">
-	</div>
-	<div class="form-group">
-	  <label for="req11">Global Diversity:</label>
-	  <input type="text" class="form-control" id="req11" placeholder="Enter 1 or 0" name="req11" maxlength="1">
-	</div>
-	<div class="form-group">
-	  <label for="req12">Capstone:</label>
-	  <input type="text" class="form-control" id="req12" placeholder="Enter 1 or 0" name="req12" maxlength="1">
-	</div>
-	<div class="form-group">
-	  <label for="req13">Complex Issues Facing Society:</label>
-	  <input type="text" class="form-control" id="req13" placeholder="Enter 1 or 0" name="req13" maxlength="1">
-	</div>	
-  </form>
-</div>
-</div>
-<div class="br">
-<div class="progress-child" style="font-size: 15px; font-family: sarif;">
-  <div class="criteria1">
-    <h5 style="font-family: sarif;">ACADEMIC FOUNDATIONS</h5>
-    <span id="mathstatslogic" style="color: red;"></span><br>
-    <span id="speaking" style="color: red;"></span><br>
-    <span id="writing" style="color: red;"></span><br>
-  </div>
-  <div class="criteria2">
-    <h5 style="font-family: sarif;">BREADTH OF KNOWLEDGE</h5>
-    <span id="arts" style="color: red;"></span><br>
-    <span id="humanities" style="color: red;"></span><br>
-    <span id="natscience" style="color: red;"></span><br>
-    <span id="socscience" style="color: red;"></span><br>
-  </div>
-  <div class="criteria3">
-    <h5 style="font-family: sarif;">DIVERSITY</h5>
-    <span id="domesticdiv" style="color: red;"></span><br>
-    <span id="globaldiv" style="color: red;"></span><br>
-  </div>
-  <div class="criteria4">
-    <h5 style="font-family: sarif;">INTEGRATED AND APPLIED LEARNING</h5>
-    <span id="capcomplex" style="color: red;"></span><br>
-  </div>
-  <div class="criteria5">
-    <h5 style="font-family: sarif;">LANGUAGE REQUIREMENT</h5>
-    <span id="langreq" style="color: red;"></span><br><br>
-  </div>
-  <span id="totalcreditstaken" style="color: red; font-weight: bold; font-size: 24px"></span><br>
-</div>
-<div class="progress-child" style="font-size: 15px; font-family: sarif;">
-  <div class="preadmission">
-  <h5 style="font-family: sarif;">PRE-ADMISSION CORE CLASSES</h5>
-    <span id="discretemath" style="color: red;"></span><br>
-    <span id="compsci1" style="color: red;"></span><br>
-    <span id="compsci2" style="color: red;"></span><br>
-	<span id="calc1" style="color: red;"></span><br>
-  </div>
-  <div class="core">
-  <h5 style="font-family: sarif;">CS - SYSTEMS CORE COURSES</h5>
-    <span id="datastructures" style="color: red;"></span><br>
-    <span id="isp" style="color: red;"></span><br>
-    <span id="oop" style="color: red;"></span><br>
-	<span id="algorithms" style="color: red;"></span><br>
-	<span id="softengi" style="color: red;"></span><br>
-	<span id="seminar" style="color: red;"></span><br>
-	<span id="compsys" style="color: red;"></span><br>
-	<span id="os" style="color: red;"></span><br>
-	<span id="calc2" style="color: red;"></span><br>
-	<span id="stats" style="color: red;"></span><br>
-  </div>
-  <div class="electives">
-  <h5 style="font-family: sarif;">ELECTIVES</h5>
-    <span id="electives" style="color: red;"></span><br>
-  </div>
-</div>
-</div>
+	$sql = "SELECT Subject_Number, Course_Number, Course_Name, Credits, Mathematics_Statistics_Logic, Speaking, Writing_First_Course, Writing_Second_Course, Arts, Humanities, Natural_Science, Natural_Science_LAB, Social_Science, Domestic_Diversity, Global_Diversity, Capstone, Complex_Issues_Facing_Society FROM courselist";
+	$result = $conn->query($sql);
 
-<p id="debug" style="position: absolute;"></p>
+	if ($result-> num_rows > 0) {
+		while ($row = $result-> fetch_assoc()) 
+		{
+			echo "<tr onclick='javascript:fillFields(this);'>";
+			echo "<td>" . $row['Subject_Number'] . "</td>";
+			echo "<td>" . $row['Course_Number'] . "</td>";
+			echo "<td>" . $row['Course_Name'] . "</td>";
+			echo "<td>" . $row['Credits'] . "</td>";
+			echo "<td style='display:none;'>" . $row['Mathematics_Statistics_Logic'] . "</td>";
+			echo "<td style='display:none;'>" . $row['Speaking'] . "</td>";
+			echo "<td style='display:none;'>" . $row['Writing_First_Course'] . "</td>";
+			echo "<td style='display:none;'>" . $row['Writing_Second_Course'] . "</td>";
+			echo "<td style='display:none;'>" . $row['Arts'] . "</td>";
+			echo "<td style='display:none;'>" . $row['Humanities'] . "</td>";
+			echo "<td style='display:none;'>" . $row['Natural_Science'] . "</td>";
+			echo "<td style='display:none;'>" . $row['Natural_Science_LAB'] . "</td>";
+			echo "<td style='display:none;'>" . $row['Social_Science'] . "</td>";
+			echo "<td style='display:none;'>" . $row['Domestic_Diversity'] . "</td>";
+			echo "<td style='display:none;'>" . $row['Global_Diversity'] . "</td>";
+			echo "<td style='display:none;'>" . $row['Capstone'] . "</td>";
+			echo "<td style='display:none;'>" . $row['Complex_Issues_Facing_Society'] . "</td>";
+			echo "</tr>";
+		}
+		echo "</table>"; 
+	} else {
+		echo "0 Results found";
+	}
+	?>
+	</div>
+
+  	<br>
+
+  	<div class='myCoursesDiv'>
+  		<h2>My Courses</h2>
+		<table id="mycourses">
+    		<tr class="myCoursesTableRow">
+       			<th>Subject Number</th>
+       			<th>Course Number</th>
+       			<th>Course Name</th>
+       			<th>Credits</th>
+    		</tr>
+		<?php
+			$sql = "SELECT Subject_Number, Course_Number, Course_Name, Credits, Mathematics_Statistics_Logic, Speaking, Writing_First_Course, Writing_Second_Course, Arts, Humanities, Natural_Science, Natural_Science_LAB, Social_Science, Domestic_Diversity, Global_Diversity, Capstone, Complex_Issues_Facing_Society FROM username";
+			$result = $conn->query($sql);
+
+			if ($result-> num_rows > 0) {
+				while ($row = $result-> fetch_assoc()) 
+				{
+					echo "<tr onclick='javascript:fillFields(this);'>";
+					echo "<td>" . $row['Subject_Number'] . "</td>";
+					echo "<td>" . $row['Course_Number'] . "</td>";
+					echo "<td>" . $row['Course_Name'] . "</td>";
+					echo "<td>" . $row['Credits'] . "</td>";
+					echo "<td style='display:none;'>" . $row['Mathematics_Statistics_Logic'] . "</td>";
+					echo "<td style='display:none;'>" . $row['Speaking'] . "</td>";
+					echo "<td style='display:none;'>" . $row['Writing_First_Course'] . "</td>";
+					echo "<td style='display:none;'>" . $row['Writing_Second_Course'] . "</td>";
+					echo "<td style='display:none;'>" . $row['Arts'] . "</td>";
+					echo "<td style='display:none;'>" . $row['Humanities'] . "</td>";
+					echo "<td style='display:none;'>" . $row['Natural_Science'] . "</td>";
+					echo "<td style='display:none;'>" . $row['Natural_Science_LAB'] . "</td>";
+					echo "<td style='display:none;'>" . $row['Social_Science'] . "</td>";
+					echo "<td style='display:none;'>" . $row['Domestic_Diversity'] . "</td>";
+					echo "<td style='display:none;'>" . $row['Global_Diversity'] . "</td>";
+					echo "<td style='display:none;'>" . $row['Capstone'] . "</td>";
+					echo "<td style='display:none;'>" . $row['Complex_Issues_Facing_Society'] . "</td>";
+					echo "</tr>";
+				}
+				echo "</table>"; 
+			} else {
+				echo "</table>";
+				echo "<p>No Course Found, Please Select A Different Course</p>";
+				
+			}
+			$conn->close();
+		?>
+  	</div>
+	<div style="clear:both;"></div>
+	<div class="userSearchForm">
+  		<h2>Search for Course</h2>
+		<p>If you cannot find your course on listing above, please search for it here!</p>
+  		<form action="http://localhost/isp/TermProject/test.php" name="coursetrackerform" method="post">
+    		<div class="form-group">
+	  			<label for="subjectnumber">Subject Number:</label>
+	  			<input type="text" class="form-control" id="subjectnumber" onkeyup="narrowList()" placeholder="Enter Subject" name="subjectnumber">
+			</div>
+    		<div class="form-group">
+	  			<label for="coursenumber">Course Number:</label>
+	  			<input type="text" class="form-control" id="coursenumber" placeholder="Enter Course Number" name="coursenumber">
+			</div>
+    		<div class="form-group">
+	  			<label for="coursename">Course Name:</label>
+	  			<input type="text" class="form-control" id="coursename" placeholder="Enter Course Name" name="coursename">
+			</div> 
+    		<div class="form-group">
+	  			<label for="credits">Credits:</label>
+	  			<input type="text" class="form-control" id="coursecredits" placeholder="Enter Credits" name="coursecredits">
+			</div>
+			<button type="submit" name="add" class="btn-def">Add Course</button>
+			<button type="submit" name="delete" class="btn-def">Delete Course</button>
+		</form>
+	</div>
+
+	<div class="userInputForm">
+		<h2>Credit Options<h2>
+		<p>If you already have credit for certain requirements due to transfer credit or college credit plus, enter them here.</p>
+		<form action="http://localhost/isp/TermProject/test.php" name="credittrackerform" method="post">
+			<div class="form-group">
+	  			<label for="req1">Mathematics, Statistics, and Logic:</label>
+	  			<input type="text" class="form-control" id="req1" placeholder="Enter 1 or 0" name="req1" maxlength="1">
+			</div>
+			<div class="form-group">
+	  			<label for="req2">Speaking:</label>
+	  			<input type="text" class="form-control" id="req2" placeholder="Enter 1 or 0" name="req2" maxlength="1">
+			</div>
+			<div class="form-group">
+	  			<label for="req3">Writing First Course:</label>
+	  			<input type="text" class="form-control" id="req3" placeholder="Enter 1 or 0" name="req3" maxlength="1">
+			</div>
+			<div class="form-group">
+	  			<label for="req4">Writing Second Course:</label>
+	  			<input type="text" class="form-control" id="req4" placeholder="Enter 1 or 0" name="req4" maxlength="1">
+			</div>
+			<div class="form-group">
+	  			<label for="req5">Fine Arts and Humanities:</label>
+	  			<input type="text" class="form-control" id="req5" placeholder="Enter 1 or 0" name="req5" maxlength="1">
+			</div>
+			<div class="form-group">
+	  			<label for="req6">Humanities:</label>
+	  			<input type="text" class="form-control" id="req6" placeholder="Enter 1 or 0" name="req6" maxlength="1">
+			</div>
+			<div class="form-group">
+	  			<label for="req7">Natural Science:</label>
+	  			<input type="text" class="form-control" id="req7" placeholder="Enter 1 or 0" name="req7" maxlength="1">
+			</div>
+			<div class="form-group">
+	  			<label for="req8">Natural Science w/Lab:</label>
+	  			<input type="text" class="form-control" id="req8" placeholder="Enter 1 or 0" name="req8" maxlength="1">
+			</div>
+			<div class="form-group">
+	  			<label for="req9">Social Science:</label>
+	  			<input type="text" class="form-control" id="req9" placeholder="Enter 1 or 0" name="req9" maxlength="1">
+			</div>
+			<div class="form-group">
+	  			<label for="req10">Domestic Diversity:</label>
+	  			<input type="text" class="form-control" id="req10" placeholder="Enter 1 or 0" name="req10" maxlength="1">
+			</div>
+			<div class="form-group">
+	  			<label for="req11">Global Diversity:</label>
+	  			<input type="text" class="form-control" id="req11" placeholder="Enter 1 or 0" name="req11" maxlength="1">
+			</div>
+			<div class="form-group">
+	  			<label for="req12">Capstone:</label>
+	  			<input type="text" class="form-control" id="req12" placeholder="Enter 1 or 0" name="req12" maxlength="1">
+			</div>
+			<div class="form-group">
+	  			<label for="req13">Complex Issues Facing Society:</label>
+	  			<input type="text" class="form-control" id="req13" placeholder="Enter 1 or 0" name="req13" maxlength="1">
+			</div>
+			<button type="submit" name="add" class="btn-def">Add Credit</button>
+			<button type="submit" name="delete" class="btn-def">Delete Credit</button>
+  		</form>
+	</div>
+
+	
+		<div class="progress-child1">
+  			<div class="criteria1">
+    			<h5>Academic Foundations</h5>
+    			<span id="mathstatslogic" style="color: red;"></span><br>
+    			<span id="speaking" style="color: red;"></span><br>
+    			<span id="writing" style="color: red;"></span><br>
+  			</div>
+  			<div class="criteria2">
+    			<h5>BREADTH OF KNOWLEDGE</h5>
+    			<span id="arts" style="color: red;"></span><br>
+    			<span id="humanities" style="color: red;"></span><br>
+    			<span id="natscience" style="color: red;"></span><br>
+    			<span id="socscience" style="color: red;"></span><br>
+  			</div>
+  			<div class="criteria3">
+    			<h5>DIVERSITY</h5>
+    			<span id="domesticdiv" style="color: red;"></span><br>
+    			<span id="globaldiv" style="color: red;"></span><br>
+  			</div>
+  			<div class="criteria4">
+    			<h5>INTEGRATED AND APPLIED LEARNING</h5>
+    			<span id="capcomplex" style="color: red;"></span><br>
+  			</div>
+  			<div class="criteria5">
+   				<h5>LANGUAGE REQUIREMENT</h5>
+    			<span id="langreq" style="color: red;"></span><br><br>
+  			</div>
+  			<span id="totalcreditstaken" style="font-size: 24px; color: red;"></span><br>
+		</div>
+		<div class="progress-child2">
+  			<div class="preadmission">
+  				<h5>PRE-ADMISSION CORE CLASSES</h5>
+    			<span id="discretemath" style="color: red;"></span><br>
+    			<span id="compsci1" style="color: red;"></span><br>
+    			<span id="compsci2" style="color: red;"></span><br>
+				<span id="calc1" style="color: red;"></span><br>
+  			</div>
+  			<div class="core">
+  				<h5>CS - SYSTEMS CORE COURSES</h5>
+    			<span id="datastructures" style="color: red;"></span><br>
+    			<span id="isp" style="color: red;"></span><br>
+    			<span id="oop" style="color: red;"></span><br>
+				<span id="algorithms" style="color: red;"></span><br>
+				<span id="softengi" style="color: red;"></span><br>
+				<span id="seminar" style="color: red;"></span><br>
+				<span id="compsys" style="color: red;"></span><br>
+				<span id="os" style="color: red;"></span><br>
+				<span id="calc2" style="color: red;"></span><br>
+				<span id="stats" style="color: red;"></span><br>
+  			</div>
+  			<div class="electives">
+  				<h5>ELECTIVES</h5>
+    			<span id="electives" style="color: red;"></span><br>
+  			</div>
+		</div>
+
+</div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
