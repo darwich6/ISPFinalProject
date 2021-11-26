@@ -276,7 +276,8 @@
 
 	<div class="userInputForm">
 		<h2>Credit Options<h2>
-		<p>Select where credit is assigned here for GenEd courses. If these are incorrect your course may be improperly tallied.</p>
+		<p>Select where credit is assigned here for GenEd courses. If these are incorrect your course may be improperly tallied. 
+		Non-GenEd courses must be all zeroes.</p>
 			<div class="form-group">
 	  			<label for="req1">Mathematics, Statistics, and Logic:</label>
 	  			<input type="text" class="form-control" id="req1" placeholder="Enter 1 or 0" name="req1" maxlength="1">
