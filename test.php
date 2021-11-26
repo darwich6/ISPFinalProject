@@ -201,8 +201,6 @@
 	?>
 	</div>
 
-  	<br>
-
   	<div class='myCoursesDiv'>
   		<h2>My Courses</h2>
 		<table id="mycourses">
