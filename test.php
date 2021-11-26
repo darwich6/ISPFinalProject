@@ -165,6 +165,12 @@
 		mysqli_query($conn, "delete from username where Subject_Number='$_POST[subjectnumber]' and Course_Number='$_POST[coursenumber]'");
 		header("refresh:0;");
 	}
+	
+	if(isset($_POST["clear"]))
+	{
+		mysqli_query($conn, "delete from username");
+		header("refresh:0;");
+	}
 
 	$sql = "SELECT Subject_Number, Course_Number, Course_Name, Credits, Mathematics_Statistics_Logic, Speaking, Writing_First_Course, Writing_Second_Course, Arts, Humanities, Natural_Science, Natural_Science_LAB, Social_Science, Domestic_Diversity, Global_Diversity, Capstone, Complex_Issues_Facing_Society FROM courselist";
 	$result = $conn->query($sql);
@@ -267,6 +273,7 @@
 			</div>
 			<button type="submit" name="add" class="btn-def">Add Course</button>
 			<button type="submit" name="delete" class="btn-def">Delete Course</button>
+			<button type="submit" name="clear" class="btn-def" onclick="return confirm('Are you sure?')">Clear Courses</button>
 
 	</div>
 
