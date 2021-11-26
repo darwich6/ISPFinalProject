@@ -10,7 +10,7 @@
 		</center>	
     </h1>
   <title>CS Course Tracker 2021</title>
-  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <style>  
 	
 	body{
@@ -46,7 +46,7 @@
 
 	tr:nth-child(even) { background-color: #A89968; }
 	tr:nth-child(odd) { 
-		background-color:#041e42;
+		background-color: #041e42;
 		color: white;
 	}
 	tr:hover { background-color: #b2b1c7; }
@@ -104,17 +104,16 @@
 
 	.progress-child1{
 		padding: auto;
-		width:47%;
+		width:50%;
 		font-family: monospace;
 		font-size: 13px;
 		height:500px;
 		display: inline-block;
-		margin-left: 7%;
 	}
 
 	.progress-child2{
 		padding: auto;
-		width:47%;
+		width:50%;
 		font-family: monospace;
 		font-size: 13px;
 		height:500px;
@@ -274,6 +273,8 @@
 			<button type="submit" name="add" class="btn-def">Add Course</button>
 			<button type="submit" name="delete" class="btn-def">Delete Course</button>
 			<button type="submit" name="clear" class="btn-def" onclick="return confirm('Are you sure?')">Clear Courses</button>
+			<button type="button" name="progress" class="btn-def" data-toggle="modal" data-target="#progressSheet">Show Progress</button>
+			
 
 	</div>
 
@@ -336,8 +337,23 @@
   		</form>
 	</div>
 
-	
-		<div class="progress-child1">
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+
+  <div class="modal fade" id="progressSheet" role="dialog">
+    <div class="modal-dialog modal-lg">
+    
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Progress</h4>
+        </div>
+        <div class="modal-body">
+          <div class="progress-child1">
   			<div class="criteria1">
     			<h5>ACADEMIC FOUNDATIONS</h5>
     			<span id="mathstatslogic" style="color: red;"></span><br>
@@ -392,13 +408,13 @@
     			<span id="electives" style="color: red;"></span><br>
   			</div>
 		</div>
-
-</div>
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div> 
+    </div>
+  </div>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
 
