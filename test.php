@@ -10,7 +10,7 @@
 		</center>	
     </h1>
   <title>CS Course Tracker 2021</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
   <style>  
 	
 	body{
@@ -60,7 +60,6 @@
 		font-size: 13px;
 		height:500px;
 		display: inline-block;
-		overflow-y:scroll;
 		float:left;
 	}
 	.userInputForm{
@@ -72,7 +71,6 @@
 		height:450px;
 		display: inline-block;
 		float:right;
-		overflow-y:scroll;
 	}
 	
 	label{
@@ -196,7 +194,7 @@
 		}
 		echo "</table>"; 
 	} else {
-		echo "0 Results found";
+		echo "No Courses Found";
 	}
 	?>
 	</div>
@@ -240,7 +238,7 @@
 				echo "</table>"; 
 			} else {
 				echo "</table>";
-				echo "<p>No Course Found, Please Select A Different Course</p>";
+				echo "<p>No Courses Found</p>";
 				
 			}
 			$conn->close();
@@ -248,9 +246,9 @@
   	</div>
 	<div style="clear:both;"></div>
 	<div class="userSearchForm">
-  		<h2>Search for Course</h2>
-		<p>If you cannot find your course on listing above, please search for it here by subject number.</p>
-  		<form action="http://localhost/isp/TermProject/test.php" name="coursetrackerform" method="post">
+  		<h2>Course</h2>
+		<p>Search for course with the subject number field.</p>
+  		<form action="http://localhost/isp/TermProject/teststyle.php" name="coursetrackerform" method="post">
     		<div class="form-group">
 	  			<label for="subjectnumber">Subject Number:</label>
 	  			<input type="text" class="form-control" id="subjectnumber" onkeyup="narrowList()" placeholder="Enter Subject" name="subjectnumber">
@@ -273,7 +271,7 @@
 	</div>
 
 	<div class="userInputForm">
-		<h2>Credit Options<h2>
+		<h2>GenEd Credit Options<h2>
 		<p>Select where credit is assigned here for GenEd courses. If these are incorrect your course may be improperly tallied. 
 		Non-GenEd courses must be all zeroes.</p>
 			<div class="form-group">
@@ -334,7 +332,7 @@
 	
 		<div class="progress-child1">
   			<div class="criteria1">
-    			<h5>Academic Foundations</h5>
+    			<h5>ACADEMIC FOUNDATIONS</h5>
     			<span id="mathstatslogic" style="color: red;"></span><br>
     			<span id="speaking" style="color: red;"></span><br>
     			<span id="writing" style="color: red;"></span><br>
