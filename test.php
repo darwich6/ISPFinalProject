@@ -251,8 +251,8 @@
 	<div style="clear:both;"></div>
 	<div class="userSearchForm">
   		<h2>Search for Course</h2>
-		<p>If you cannot find your course on listing above, please search for it here!</p>
-  		<form action="http://localhost/isp/TermProject/test.php" name="coursetrackerform" method="post">
+		<p>If you cannot find your course on listing above, please search for it here by subject number.</p>
+  		<form action="http://localhost/isp/TermProject/teststyle.php" name="coursetrackerform" method="post">
     		<div class="form-group">
 	  			<label for="subjectnumber">Subject Number:</label>
 	  			<input type="text" class="form-control" id="subjectnumber" onkeyup="narrowList()" placeholder="Enter Subject" name="subjectnumber">
@@ -271,13 +271,12 @@
 			</div>
 			<button type="submit" name="add" class="btn-def">Add Course</button>
 			<button type="submit" name="delete" class="btn-def">Delete Course</button>
-		</form>
+
 	</div>
 
 	<div class="userInputForm">
 		<h2>Credit Options<h2>
-		<p>If you already have credit for certain requirements due to transfer credit or college credit plus, enter them here.</p>
-		<form action="http://localhost/isp/TermProject/test.php" name="credittrackerform" method="post">
+		<p>Select where credit is assigned here for GenEd courses. If these are incorrect your course may be improperly tallied.</p>
 			<div class="form-group">
 	  			<label for="req1">Mathematics, Statistics, and Logic:</label>
 	  			<input type="text" class="form-control" id="req1" placeholder="Enter 1 or 0" name="req1" maxlength="1">
@@ -330,8 +329,6 @@
 	  			<label for="req13">Complex Issues Facing Society:</label>
 	  			<input type="text" class="form-control" id="req13" placeholder="Enter 1 or 0" name="req13" maxlength="1">
 			</div>
-			<button type="submit" name="add" class="btn-def">Add Credit</button>
-			<button type="submit" name="delete" class="btn-def">Delete Credit</button>
   		</form>
 	</div>
 
@@ -460,7 +457,7 @@ function narrowList()
   var input, filter, table, tr, td, i, txtValue;
   input = document.getElementById("subjectnumber");
   filter = input.value.toUpperCase();
-  table = document.getElementById("courselist");
+  table = document.getElementById("courseList");
   tr = table.getElementsByTagName("tr");
   for (i = 0; i < tr.length; i++) 
   {
