@@ -23,6 +23,7 @@
   
 	.courseListDiv {
 		padding: auto;
+		padding-left: 10px;
 		text-align: center;
 		width:47%;
 		font-family: monospace;
@@ -34,6 +35,7 @@
 	}
 	.myCoursesDiv {
 		padding: auto;
+		padding-right: 10px;
 		text-align: center;
 		width:47%;
 		font-family: monospace;
@@ -122,6 +124,10 @@
 		position: absolute;
 	}
 
+	th{
+		text-align: center;
+	}
+
 
   </style>
 </head>
@@ -137,7 +143,7 @@
 	   		<th>Subject Number</th>
 	   		<th>Course Number</th>
 	   		<th>Course Name</th>
-	   		<th>Credits</th>
+	   		<th>Credits </th>
     	</tr>
 		<?php
 		$servername = "localhost";
