@@ -67,7 +67,7 @@
 		font-family: monospace;
 		font-size: 13px;
 		//height:500px;
-		margin-left: 22%;
+		margin-left: 10%;
 		display: inline-block;
 	}
 	.userInputForm{
