@@ -97,10 +97,9 @@
 		font-size: 13px;
 	}
 
-	.btn-def {
+	.btn-secondary {
 		background-color: #dddddd;
 		border: none;
-		color: black;
 		padding: 10px 12px;
 		text-align: center;
 		font-size: 16px;
@@ -275,11 +274,11 @@
 	  			<label for="credits">Credits:</label>
 	  			<input type="text" class="form-control" id="coursecredits" placeholder="Enter Credits" name="coursecredits">
 			</div>
-			<button type="submit" name="add" class="btn-def">Add Course</button>
-			<button type="submit" name="delete" class="btn-def">Delete Course</button>
-			<button type="submit" name="clear" class="btn-def" onclick="return confirm('Are you sure?')">Clear Courses</button>
-			<button type="button" name="progress" class="btn-def" data-toggle="modal" data-target="#progressSheet">Show Progress</button>
-			<button type="button" id="optionsbtn" name="options" class="btn-def" onclick="toggleOptions()">Show Options</button>
+			<button type="submit" name="add" class="btn btn-secondary">Add Course</button>
+			<button type="submit" name="delete" class="btn btn-secondary">Delete Course</button>
+			<button type="submit" name="clear" class="btn btn-secondary" onclick="return confirm('Are you sure?')">Clear Courses</button>
+			<button type="button" name="progress" class="btn btn-secondary" data-toggle="modal" data-target="#progressSheet">Show Progress</button>
+			<button type="button" id="optionsbtn" name="options" class="btn btn-secondary" onclick="toggleOptions()">Show Options</button>
 	</div>
 
 	<div id="userInputForm" class="userInputForm">
