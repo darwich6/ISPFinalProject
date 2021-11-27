@@ -47,12 +47,14 @@
 		float: left;
 	}
 	
-	.table-striped thead th {
+	th {
 		position: sticky;
+		top: 0;
+		background-color: #A9A9A9; 
 	}
 	
 	.table-striped tr.selected td {
-		background-color: #A9A9A9;
+		background-color: #cce6ff;
 	}
 
 	tr:hover { background-color: #b2b1c7; }
@@ -61,15 +63,14 @@
 	.userSearchForm{
 		padding: auto;
 		text-align: center;
-		width: 30%;
+		//width: 30%;
 		font-family: monospace;
 		font-size: 13px;
-		height:500px;
-		margin-left: 33%;
+		//height:500px;
+		margin-left: 22%;
 		display: inline-block;
 	}
 	.userInputForm{
-		padding: auto;
 		text-align: center;
 		width: 30%;
 		font-family: monospace;
@@ -126,6 +127,10 @@
 		float:right;
 		position: absolute;
 	}
+	
+	.form-group {
+		display: inline;
+	}
 
 
   </style>
@@ -147,7 +152,7 @@
 		<?php
 		$servername = "localhost";
 		$username = "root";
-		$password = "root";
+		$password = "";
 		$dbname = "isp";
 
 
@@ -254,31 +259,35 @@
 		?>
   	</div>
 	<div style="clear:both;"></div>
+	<form action="http://localhost/isp/TermProject/test.php" name="coursetrackerform" method="post">
 	<div class="userSearchForm">
   		<h2>Course</h2>
 		<p>Search for course with the Subject Number field.</p>
-  		<form action="http://localhost/isp/TermProject/test.php" name="coursetrackerform" method="post">
-    		<div class="form-group">
+		<div class="">
+    		<div class="form-group col-3">
 	  			<label for="subjectnumber">Subject Number:</label>
-	  			<input type="text" class="form-control" id="subjectnumber" onkeyup="narrowList()" placeholder="Enter Subject" name="subjectnumber">
+	  			<input type="text" class="" id="subjectnumber" onkeyup="narrowList()" placeholder="Enter Subject" name="subjectnumber">
 			</div>
-    		<div class="form-group">
+    		<div class="form-group col-3">
 	  			<label for="coursenumber">Course Number:</label>
-	  			<input type="text" class="form-control" id="coursenumber" placeholder="Enter Course Number" name="coursenumber">
+	  			<input type="text" class="" id="coursenumber" placeholder="Enter Course Number" name="coursenumber">
 			</div>
-    		<div class="form-group">
+    		<div class="form-group col-3">
 	  			<label for="coursename">Course Name:</label>
-	  			<input type="text" class="form-control" id="coursename" placeholder="Enter Course Name" name="coursename">
+	  			<input type="text" class="" id="coursename" placeholder="Enter Course Name" name="coursename">
 			</div> 
-    		<div class="form-group">
+    		<div class="form-group col-3">
 	  			<label for="credits">Credits:</label>
-	  			<input type="text" class="form-control" id="coursecredits" placeholder="Enter Credits" name="coursecredits">
+	  			<input type="text" class="" id="coursecredits" placeholder="Enter Credits" name="coursecredits">
 			</div>
+		</div>
+		<div>
 			<button type="submit" name="add" class="btn btn-secondary">Add Course</button>
 			<button type="submit" name="delete" class="btn btn-secondary">Delete Course</button>
 			<button type="submit" name="clear" class="btn btn-secondary" onclick="return confirm('Are you sure?')">Clear Courses</button>
 			<button type="button" name="progress" class="btn btn-secondary" data-toggle="modal" data-target="#progressSheet">Show Progress</button>
 			<button type="button" id="optionsbtn" name="options" class="btn btn-secondary" onclick="toggleOptions()">Show Options</button>
+		</div>
 	</div>
 
 	<div id="userInputForm" class="userInputForm">
