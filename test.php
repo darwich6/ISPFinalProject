@@ -148,7 +148,7 @@
 		<?php
 		$servername = "localhost";
 		$username = "root";
-		$password = "";
+		$password = "root";
 		$dbname = "isp";
 
 
@@ -209,7 +209,7 @@
 	}
 	?>
 	</div>
-	<h2 style="margin-left: 70%;">My Courses</h2>
+	<h2 style="margin-left: 70%; position: absolute; top: 90px;">My Courses</h2>
 		<div class='myCoursesDiv'>
 		<table class="table table-striped" id="mycourses">
     		<tr class="myCoursesTableRow">
@@ -257,8 +257,8 @@
 	<div style="clear:both;"></div>
 	<div class="userSearchForm">
   		<h2>Course</h2>
-		<p>Search for course with the subject number field.</p>
-  		<form action="http://localhost/isp/TermProject/teststyle.php" name="coursetrackerform" method="post">
+		<p>Search for course with the Subject Number field.</p>
+  		<form action="http://localhost/isp/TermProject/test.php" name="coursetrackerform" method="post">
     		<div class="form-group">
 	  			<label for="subjectnumber">Subject Number:</label>
 	  			<input type="text" class="form-control" id="subjectnumber" onkeyup="narrowList()" placeholder="Enter Subject" name="subjectnumber">
