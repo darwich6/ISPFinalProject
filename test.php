@@ -60,7 +60,7 @@
 
 	.userSearchForm{
 		padding: auto;
-		text-align: left;
+		text-align: center;
 		width: 30%;
 		font-family: monospace;
 		font-size: 13px;
@@ -148,7 +148,7 @@
 		<?php
 		$servername = "localhost";
 		$username = "root";
-		$password = "root";
+		$password = "";
 		$dbname = "isp";
 
 
@@ -258,7 +258,7 @@
 	<div class="userSearchForm">
   		<h2>Course</h2>
 		<p>Search for course with the subject number field.</p>
-  		<form action="http://localhost/isp/TermProject/test.php" name="coursetrackerform" method="post">
+  		<form action="http://localhost/isp/TermProject/teststyle.php" name="coursetrackerform" method="post">
     		<div class="form-group">
 	  			<label for="subjectnumber">Subject Number:</label>
 	  			<input type="text" class="form-control" id="subjectnumber" onkeyup="narrowList()" placeholder="Enter Subject" name="subjectnumber">
