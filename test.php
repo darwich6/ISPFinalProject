@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <h1>
 		<center>
-     	<span style="color:#A89968">CS-Systems Course</span>
-     	<span style="color:#A89968">Tracker 2021</span>
+     	<span style="color:#999999">CS-Systems</span>
+     	<span style="color:#000000">Course Tracker 2021</span>
 		</center>	
     </h1>
   <title>CS Course Tracker 2021</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <style>  
 	
 	body{
@@ -22,8 +22,22 @@
 	}
   
 	.courseListDiv {
+		margin-left: 2%;
+		margin-right: 2%;
 		padding: auto;
-		text-align: center;
+		text-align: left;
+		width:47%;
+		font-family: monospace;
+		font-size: 13px;
+		overflow-y: scroll;
+		height:350px;
+		display: inline-block;
+		float: left;
+	}
+	
+	.myCoursesDiv {
+		padding: auto;
+		text-align: left;
 		width:47%;
 		font-family: monospace;
 		font-size: 13px;
@@ -32,47 +46,37 @@
 		display: inline-block;
 		float: left;
 	}
-	.myCoursesDiv {
-		padding: auto;
-		text-align: center;
-		width:47%;
-		font-family: monospace;
-		font-size: 13px;
-		overflow-y:scroll;
-		height:350px;
-		display: inline-block;
-		float:right;
+	
+	.table-striped thead th {
+		position: sticky;
+	}
+	
+	.table-striped tr.selected td {
+		background-color: #A9A9A9;
 	}
 
-	tr:nth-child(even) { background-color: #A89968; }
-	tr:nth-child(odd) { 
-		background-color: #041E99;
-		color: white;
-	}
 	tr:hover { background-color: #b2b1c7; }
-	tr.selected { background-color: #ff8800; }
+	tr.selected { background-color: #A9A9A9; }
 
 	.userSearchForm{
 		padding: auto;
-		text-align: center;
-		width:47%;
+		text-align: left;
+		width: 30%;
 		font-family: monospace;
 		font-size: 13px;
 		height:500px;
+		margin-left: 33%;
 		display: inline-block;
-		overflow-y:scroll;
-		float:left;
 	}
 	.userInputForm{
 		padding: auto;
 		text-align: center;
-		width:47%;
+		width: 30%;
 		font-family: monospace;
 		font-size: 13px;
 		height:450px;
-		display: inline-block;
-		float:right;
-		overflow-y:scroll;
+		margin-left: 33%;
+		display: none;
 	}
 	
 	label{
@@ -94,10 +98,10 @@
 	}
 
 	.btn-def {
-		background-color: #041e42;
+		background-color: #dddddd;
 		border: none;
-		color: white;
-		padding: 10px 20px;
+		color: black;
+		padding: 10px 12px;
 		text-align: center;
 		font-size: 16px;
 		margin: 4px 2px;
@@ -106,17 +110,16 @@
 
 	.progress-child1{
 		padding: auto;
-		width:47%;
+		width:50%;
 		font-family: monospace;
 		font-size: 13px;
 		height:500px;
 		display: inline-block;
-		margin-left: 7%;
 	}
 
 	.progress-child2{
 		padding: auto;
-		width:47%;
+		width:50%;
 		font-family: monospace;
 		font-size: 13px;
 		height:500px;
@@ -133,9 +136,9 @@
 	<h4> Authors: Ahmed Darwich, Zach Pallota, John Dailey </h4>
 </div>
 	<!-- div class tl is now courseListDiv -->
-    <div class="courseListDiv">
-    	<h2>Course List</h2>
-    	<table id="courseList">
+    <h2 style="margin-left: 20%;">Course List</h2>
+	<div class="courseListDiv">
+    	<table class="table table-striped" id="courseList">
   		<tr class="courseListTableRow">
 	   		<th>Subject Number</th>
 	   		<th>Course Number</th>
@@ -167,6 +170,12 @@
 		mysqli_query($conn, "delete from username where Subject_Number='$_POST[subjectnumber]' and Course_Number='$_POST[coursenumber]'");
 		header("refresh:0;");
 	}
+	
+	if(isset($_POST["clear"]))
+	{
+		mysqli_query($conn, "delete from username");
+		header("refresh:0;");
+	}
 
 	$sql = "SELECT Subject_Number, Course_Number, Course_Name, Credits, Mathematics_Statistics_Logic, Speaking, Writing_First_Course, Writing_Second_Course, Arts, Humanities, Natural_Science, Natural_Science_LAB, Social_Science, Domestic_Diversity, Global_Diversity, Capstone, Complex_Issues_Facing_Society FROM courselist";
 	$result = $conn->query($sql);
@@ -196,14 +205,13 @@
 		}
 		echo "</table>"; 
 	} else {
-		echo "0 Results found";
+		echo "No Courses Found";
 	}
 	?>
 	</div>
-
-  	<div class='myCoursesDiv'>
-  		<h2>My Courses</h2>
-		<table id="mycourses">
+	<h2 style="margin-left: 70%;">My Courses</h2>
+		<div class='myCoursesDiv'>
+		<table class="table table-striped" id="mycourses">
     		<tr class="myCoursesTableRow">
        			<th>Subject Number</th>
        			<th>Course Number</th>
@@ -240,7 +248,7 @@
 				echo "</table>"; 
 			} else {
 				echo "</table>";
-				echo "<p>No Course Found, Please Select A Different Course</p>";
+				echo "<p>No Courses Found</p>";
 				
 			}
 			$conn->close();
@@ -248,8 +256,8 @@
   	</div>
 	<div style="clear:both;"></div>
 	<div class="userSearchForm">
-  		<h2>Search for Course</h2>
-		<p>If you cannot find your course on listing above, please search for it here by subject number.</p>
+  		<h2>Course</h2>
+		<p>Search for course with the subject number field.</p>
   		<form action="http://localhost/isp/TermProject/test.php" name="coursetrackerform" method="post">
     		<div class="form-group">
 	  			<label for="subjectnumber">Subject Number:</label>
@@ -269,11 +277,13 @@
 			</div>
 			<button type="submit" name="add" class="btn-def">Add Course</button>
 			<button type="submit" name="delete" class="btn-def">Delete Course</button>
-
+			<button type="submit" name="clear" class="btn-def" onclick="return confirm('Are you sure?')">Clear Courses</button>
+			<button type="button" name="progress" class="btn-def" data-toggle="modal" data-target="#progressSheet">Show Progress</button>
+			<button type="button" id="optionsbtn" name="options" class="btn-def" onclick="toggleOptions()">Show Options</button>
 	</div>
 
-	<div class="userInputForm">
-		<h2>Credit Options<h2>
+	<div id="userInputForm" class="userInputForm">
+		<h2>GenEd Credit Options<h2>
 		<p>Select where credit is assigned here for GenEd courses. If these are incorrect your course may be improperly tallied. 
 		Non-GenEd courses must be all zeroes.</p>
 			<div class="form-group">
@@ -331,10 +341,25 @@
   		</form>
 	</div>
 
-	
-		<div class="progress-child1">
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+
+  <div class="modal fade" id="progressSheet" role="dialog">
+    <div class="modal-dialog modal-lg">
+    
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Progress</h4>
+        </div>
+        <div class="modal-body">
+          <div class="progress-child1">
   			<div class="criteria1">
-    			<h5>Academic Foundations</h5>
+    			<h5>ACADEMIC FOUNDATIONS</h5>
     			<span id="mathstatslogic" style="color: red;"></span><br>
     			<span id="speaking" style="color: red;"></span><br>
     			<span id="writing" style="color: red;"></span><br>
@@ -387,13 +412,13 @@
     			<span id="electives" style="color: red;"></span><br>
   			</div>
 		</div>
-
-</div>
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div> 
+    </div>
+  </div>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
 
@@ -474,6 +499,17 @@ function narrowList()
   }
 }
 
+function toggleOptions() {
+  var x = document.getElementById("userInputForm");
+  var btn = document.getElementById("optionsbtn");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+	btn.innerHTML = ("Show Options");
+  } else {
+    x.style.display = "block";
+	btn.innerHTML = ("Hide Options");
+  }
+}
 
 var table = document.getElementById("mycourses"), sumVal = 0.0;
 var mathstatslogic = speaking = writing1 = writing2 = arts = humanities = natscience = natsciencelab = socscience = domesticdiv = globaldiv = capcomplex = 0.0;
