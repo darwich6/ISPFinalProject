@@ -63,10 +63,10 @@
 	.userSearchForm{
 		padding: auto;
 		text-align: center;
-		//width: 30%;
+		/*width: 30%; */
 		font-family: monospace;
 		font-size: 13px;
-		//height:500px;
+		/*height:500px; */
 		margin-left: 10%;
 		display: inline-block;
 	}
