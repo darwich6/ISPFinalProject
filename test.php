@@ -10,7 +10,7 @@
 		</center>	
     </h1>
   <title>CS Course Tracker 2021</title>
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <style>  
 	
 	body{
@@ -52,6 +52,9 @@
 		top: 0;
 		background-color: #A9A9A9; 
 	}
+	.table-striped tr:hover td {
+		background-color: #b2b1c7;
+	}
 	
 	.table-striped tr.selected td {
 		background-color: #cce6ff;
@@ -63,10 +66,10 @@
 	.userSearchForm{
 		padding: auto;
 		text-align: center;
-		/*width: 30%; */
+		/*width: 30%;*/
 		font-family: monospace;
 		font-size: 13px;
-		/*height:500px; */
+		/*height:500px;*/
 		margin-left: 10%;
 		display: inline-block;
 	}
@@ -213,7 +216,7 @@
 	}
 	?>
 	</div>
-	<h2 style="margin-left: 70%; position: absolute; top: 90px;">My Courses</h2>
+	<h2 style="margin-left: 70%; position: absolute; top: 85px;">My Courses</h2>
 		<div class='myCoursesDiv'>
 		<table class="table table-striped" id="mycourses">
     		<tr class="myCoursesTableRow">
@@ -264,19 +267,19 @@
   		<h2>Course</h2>
 		<p>Search for course with the Subject Number field.</p>
 		<div class="">
-    		<div class="form-group col-3">
+    		<div class="form-group">
 	  			<label for="subjectnumber">Subject Number:</label>
 	  			<input type="text" class="" id="subjectnumber" onkeyup="narrowList()" placeholder="Enter Subject" name="subjectnumber">
 			</div>
-    		<div class="form-group col-3">
+    		<div class="form-group">
 	  			<label for="coursenumber">Course Number:</label>
 	  			<input type="text" class="" id="coursenumber" placeholder="Enter Course Number" name="coursenumber">
 			</div>
-    		<div class="form-group col-3">
+    		<div class="form-group">
 	  			<label for="coursename">Course Name:</label>
 	  			<input type="text" class="" id="coursename" placeholder="Enter Course Name" name="coursename">
 			</div> 
-    		<div class="form-group col-3">
+    		<div class="form-group">
 	  			<label for="credits">Credits:</label>
 	  			<input type="text" class="" id="coursecredits" placeholder="Enter Credits" name="coursecredits">
 			</div>
@@ -427,8 +430,6 @@
       </div> 
     </div>
   </div>
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
 
 <script>
 $("table tr").click(function()
