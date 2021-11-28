@@ -22,7 +22,7 @@
 	}
   
 	.courseListDiv {
-		padding: auto;
+		margin-bottom: 10px;
 		text-align: left;
 		font-family: monospace;
 		font-size: 13px;
@@ -38,7 +38,7 @@
 		font-size: 13px;
 		overflow-y:scroll;
 		height:350px;
-		margin-left: 26%;
+		margin-left: 27%;
 	}
 	
 	th {
@@ -64,7 +64,7 @@
 		font-family: monospace;
 		font-size: 13px;
 		/*height:500px;*/
-		margin-left: 22%;
+		margin-left: 16%;
 		display: inline-block;
 	}
 	.userInputForm{
@@ -157,7 +157,7 @@
 		<?php
 		$servername = "localhost";
 		$username = "root";
-		$password = "";
+		$password = "root";
 		$dbname = "isp";
 
 
@@ -278,7 +278,7 @@
 		?>
   	</div>
 	<div style="clear:both;"></div>
-	<form action="http://localhost/isp/TermProject/testmodal.php" name="coursetrackerform" method="post">
+	<form action="http://localhost/isp/TermProject/test.php" name="coursetrackerform" method="post">
 	<div class="userSearchForm">
   		<h2>Course</h2>
 		<div class="">
