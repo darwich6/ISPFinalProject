@@ -133,31 +133,31 @@
   </style>
 </head>
 <body>
-	<div class="top">
-		<h4> Authors: Ahmed Darwich, Zach Pallota, John Dailey </h4>
-	</div>
-	<h2 style="margin-left: 45%;">My Courses</h2>
+    <div class="top">
+	    <h4> Authors: Ahmed Darwich, Zach Pallota, John Dailey </h4>
+    </div>
+    <h2 style="margin-left: 45%;">My Courses</h2>
 	<!-- div class tl is now courseListDiv -->	
-	<div class="modal fade" id="search" role="dialog">
-		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Course List</h4>
-				</div>
-				<div class="modal-body">
-					<div class="courseListDiv">
-						<table class="table table-striped" id="courseList">
-							<tr class="courseListTableRow">
-								<th>Subject Number</th>
-								<th>Course Number</th>
-								<th>Course Name</th>
-								<th>Credits</th>
-							</tr>
+    <div class="modal fade" id="search" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Course List</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="courseListDiv">
+                        <table class="table table-striped" id="courseList">
+                            <tr class="courseListTableRow">
+                                <th>Subject Number</th>
+                                <th>Course Number</th>
+                                <th>Course Name</th>
+                                <th>Credits</th>
+                            </tr>
 		<?php
 		$servername = "localhost";
 		$username = "root";
-		$password = "root";
+		$password = "";
 		$dbname = "isp";
 
 
@@ -218,20 +218,20 @@
 	}
 	?>
 
-					</div>
-						<div class="form-group">
-							<label for="subjectfind">Search Subject:</label>
-							<input type="text" class="" id="subjectfind" onkeyup="narrowList()" placeholder="Enter Subject" name="subjectfind">
-						</div>
-				</div>
-			</div>
-			</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div> 
-		</div>
-	</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subjectfind">Search Subject:</label>
+                        <input type="text" class="" id="subjectfind" onkeyup="narrowList()" placeholder="Enter Subject" name="subjectfind">
+                    </div>
+                </div>
+            </div>
+            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div> 
+        </div>
+    </div>
 	
 	<div class='myCoursesDiv'>
 		<table class="table table-striped" id="mycourses">
@@ -278,7 +278,7 @@
 		?>
   	</div>
 	<div style="clear:both;"></div>
-	<form action="http://localhost/isp/TermProject/test.php" name="coursetrackerform" method="post">
+	<form action="http://localhost/isp/TermProject/testmodal.php" name="coursetrackerform" method="post">
 	<div class="userSearchForm">
   		<h2>Course</h2>
 		<div class="">
