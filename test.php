@@ -38,7 +38,7 @@
 		font-size: 13px;
 		overflow-y:scroll;
 		height:350px;
-		margin-left: 27%;
+		margin-left: 26%;
 	}
 	
 	th {
@@ -64,7 +64,7 @@
 		font-family: monospace;
 		font-size: 13px;
 		/*height:500px;*/
-		margin-left: 16%;
+		margin-left: 22%;
 		display: inline-block;
 	}
 	.userInputForm{
@@ -154,10 +154,10 @@
                                 <th>Course Name</th>
                                 <th>Credits</th>
                             </tr>
-		<?php
+<?php
 		$servername = "localhost";
 		$username = "root";
-		$password = "root";
+		$password = "";
 		$dbname = "isp";
 
 
@@ -216,12 +216,14 @@
 	} else {
 		echo "No Courses Found";
 	}
-	?>
+?>
 
                     </div>
                     <div class="form-group">
                         <label for="subjectfind">Search Subject:</label>
-                        <input type="text" class="" id="subjectfind" onkeyup="narrowList()" placeholder="Enter Subject" name="subjectfind">
+                        <input type="text" class="" id="subjectfind" onkeyup="narrowListSubject()" placeholder="Enter Subject" name="subjectfind">
+						<label for="namefind">Search Name:</label>
+                        <input type="text" class="" id="namefind" onkeyup="narrowListName()" placeholder="Enter Name" name="namefind">
                     </div>
                 </div>
             </div>
@@ -500,7 +502,7 @@ function fillFields(row)
 	}
 }
 
-function narrowList() 
+function narrowListSubject() 
 {
   var input, filter, table, tr, td, i, txtValue;
   input = document.getElementById("subjectfind");
@@ -522,6 +524,31 @@ function narrowList()
     }       
   }
 }
+
+function narrowListName() 
+{
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("namefind");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("courseList");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) 
+  {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) 
+	{
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) 
+	  {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+
+
 
 function toggleOptions() {
   var x = document.getElementById("userInputForm");
