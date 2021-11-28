@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <h1>
 		<center>
-     	<span style="color:#A89968">CS-Systems Course</span>
-     	<span style="color:#A89968">Tracker 2021</span>
+     	<span style="color:#999999">CS-Systems</span>
+     	<span style="color:#000000">Course Tracker 2021</span>
 		</center>	
     </h1>
   <title>CS Course Tracker 2021</title>
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <style>  
 	
 	body{
@@ -23,56 +23,58 @@
   
 	.courseListDiv {
 		padding: auto;
-		padding-left: 10px;
-		text-align: center;
-		width:47%;
+		text-align: left;
 		font-family: monospace;
 		font-size: 13px;
-		overflow-y:scroll;
+		overflow-y: scroll;
 		height:350px;
-		display: inline-block;
-		float: left;
 	}
+	
 	.myCoursesDiv {
 		padding: auto;
-		padding-right: 10px;
-		text-align: center;
+		text-align: left;
 		width:47%;
 		font-family: monospace;
 		font-size: 13px;
 		overflow-y:scroll;
 		height:350px;
-		display: inline-block;
-		float:right;
+		margin-left: 26%;
+	}
+	
+	th {
+		position: sticky;
+		top: 0;
+		background-color: #A9A9A9; 
+	}
+	.table-striped tr:hover td {
+		background-color: #b2b1c7;
+	}
+	
+	.table-striped tr.selected td {
+		background-color: #cce6ff;
 	}
 
-	tr:nth-child(even) { background-color: #A89968; }
-	tr:nth-child(odd) { 
-		background-color: #041e42;
-		color: white;
-	}
 	tr:hover { background-color: #b2b1c7; }
-	tr.selected { background-color: #ff8800; }
+	tr.selected { background-color: #A9A9A9; }
 
 	.userSearchForm{
 		padding: auto;
 		text-align: center;
-		width:47%;
+		/*width: 30%;*/
 		font-family: monospace;
 		font-size: 13px;
-		height:500px;
+		/*height:500px;*/
+		margin-left: 22%;
 		display: inline-block;
-		float:left;
 	}
 	.userInputForm{
-		padding: auto;
 		text-align: center;
-		width:47%;
+		width: 33%;
 		font-family: monospace;
 		font-size: 13px;
 		height:450px;
-		display: inline-block;
-		float:right;
+		margin-left: 32%;
+		display: none;
 	}
 	
 	label{
@@ -93,11 +95,10 @@
 		font-size: 13px;
 	}
 
-	.btn-def {
-		background-color: #041e42;
+	.btn-secondary {
+		background-color: #dddddd;
 		border: none;
-		color: white;
-		padding: 10px 20px;
+		padding: 10px 12px;
 		text-align: center;
 		font-size: 16px;
 		margin: 4px 2px;
@@ -123,28 +124,36 @@
 		float:right;
 		position: absolute;
 	}
-
-	th{
-		text-align: center;
+	
+	.form-group {
+		display: inline;
 	}
 
 
   </style>
 </head>
 <body>
-<div class="top">
-	<h4> Authors: Ahmed Darwich, Zach Pallota, John Dailey </h4>
-</div>
-	<!-- div class tl is now courseListDiv -->
-    <div class="courseListDiv">
-    	<h2>Course List</h2>
-    	<table id="courseList">
-  		<tr class="courseListTableRow">
-	   		<th>Subject Number</th>
-	   		<th>Course Number</th>
-	   		<th>Course Name</th>
-	   		<th>Credits </th>
-    	</tr>
+	<div class="top">
+		<h4> Authors: Ahmed Darwich, Zach Pallota, John Dailey </h4>
+	</div>
+	<h2 style="margin-left: 45%;">My Courses</h2>
+	<!-- div class tl is now courseListDiv -->	
+	<div class="modal fade" id="search" role="dialog">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Course List</h4>
+				</div>
+				<div class="modal-body">
+					<div class="courseListDiv">
+						<table class="table table-striped" id="courseList">
+							<tr class="courseListTableRow">
+								<th>Subject Number</th>
+								<th>Course Number</th>
+								<th>Course Name</th>
+								<th>Credits</th>
+							</tr>
 		<?php
 		$servername = "localhost";
 		$username = "root";
@@ -208,11 +217,24 @@
 		echo "No Courses Found";
 	}
 	?>
-	</div>
 
-  	<div class='myCoursesDiv'>
-  		<h2>My Courses</h2>
-		<table id="mycourses">
+					</div>
+						<div class="form-group">
+							<label for="subjectfind">Search Subject:</label>
+							<input type="text" class="" id="subjectfind" onkeyup="narrowList()" placeholder="Enter Subject" name="subjectfind">
+						</div>
+				</div>
+			</div>
+			</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div> 
+		</div>
+	</div>
+	
+	<div class='myCoursesDiv'>
+		<table class="table table-striped" id="mycourses">
     		<tr class="myCoursesTableRow">
        			<th>Subject Number</th>
        			<th>Course Number</th>
@@ -256,35 +278,38 @@
 		?>
   	</div>
 	<div style="clear:both;"></div>
+	<form action="http://localhost/isp/TermProject/test.php" name="coursetrackerform" method="post">
 	<div class="userSearchForm">
   		<h2>Course</h2>
-		<p>Search for course with the subject number field.</p>
-  		<form action="http://localhost/isp/TermProject/test.php" name="coursetrackerform" method="post">
+		<div class="">
     		<div class="form-group">
 	  			<label for="subjectnumber">Subject Number:</label>
-	  			<input type="text" class="form-control" id="subjectnumber" onkeyup="narrowList()" placeholder="Enter Subject" name="subjectnumber">
+	  			<input type="text" class="" id="subjectnumber" placeholder="Enter Subject" name="subjectnumber">
 			</div>
     		<div class="form-group">
 	  			<label for="coursenumber">Course Number:</label>
-	  			<input type="text" class="form-control" id="coursenumber" placeholder="Enter Course Number" name="coursenumber">
+	  			<input type="text" class="" id="coursenumber" placeholder="Enter Course Number" name="coursenumber">
 			</div>
     		<div class="form-group">
 	  			<label for="coursename">Course Name:</label>
-	  			<input type="text" class="form-control" id="coursename" placeholder="Enter Course Name" name="coursename">
+	  			<input type="text" class="" id="coursename" placeholder="Enter Course Name" name="coursename">
 			</div> 
     		<div class="form-group">
 	  			<label for="credits">Credits:</label>
-	  			<input type="text" class="form-control" id="coursecredits" placeholder="Enter Credits" name="coursecredits">
+	  			<input type="text" class="" id="coursecredits" placeholder="Enter Credits" name="coursecredits">
 			</div>
-			<button type="submit" name="add" class="btn-def">Add Course</button>
-			<button type="submit" name="delete" class="btn-def">Delete Course</button>
-			<button type="submit" name="clear" class="btn-def" onclick="return confirm('Are you sure?')">Clear Courses</button>
-			<button type="button" name="progress" class="btn-def" data-toggle="modal" data-target="#progressSheet">Show Progress</button>
-			
-
+		</div>
+		<div>
+			<button type="button" name="search" class="btn btn-secondary" data-toggle="modal" data-target="#search">Find Course</button>
+			<button type="submit" name="add" class="btn btn-secondary">Add Course</button>
+			<button type="submit" name="delete" class="btn btn-secondary">Delete Course</button>
+			<button type="submit" name="clear" class="btn btn-secondary" onclick="return confirm('Are you sure?')">Clear Courses</button>
+			<button type="button" name="progress" class="btn btn-secondary" data-toggle="modal" data-target="#progressSheet">Show Progress</button>
+			<button type="button" id="optionsbtn" name="options" class="btn btn-secondary" onclick="toggleOptions()">Show Options</button>
+		</div>
 	</div>
 
-	<div class="userInputForm">
+	<div id="userInputForm" class="userInputForm">
 		<h2>GenEd Credit Options<h2>
 		<p>Select where credit is assigned here for GenEd courses. If these are incorrect your course may be improperly tallied. 
 		Non-GenEd courses must be all zeroes.</p>
@@ -352,7 +377,6 @@
 
   <div class="modal fade" id="progressSheet" role="dialog">
     <div class="modal-dialog modal-lg">
-    
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -422,8 +446,6 @@
     </div>
   </div>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
-
 <script>
 $("table tr").click(function()
 {
@@ -481,7 +503,7 @@ function fillFields(row)
 function narrowList() 
 {
   var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("subjectnumber");
+  input = document.getElementById("subjectfind");
   filter = input.value.toUpperCase();
   table = document.getElementById("courseList");
   tr = table.getElementsByTagName("tr");
@@ -501,6 +523,17 @@ function narrowList()
   }
 }
 
+function toggleOptions() {
+  var x = document.getElementById("userInputForm");
+  var btn = document.getElementById("optionsbtn");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+	btn.innerHTML = ("Show Options");
+  } else {
+    x.style.display = "block";
+	btn.innerHTML = ("Hide Options");
+  }
+}
 
 var table = document.getElementById("mycourses"), sumVal = 0.0;
 var mathstatslogic = speaking = writing1 = writing2 = arts = humanities = natscience = natsciencelab = socscience = domesticdiv = globaldiv = capcomplex = 0.0;
