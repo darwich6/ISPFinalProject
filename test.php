@@ -5,7 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>CS Course Tracker 2021</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <style>  
+  <style>    
+	html {
+		overflow-y: scroll;
+	} 
+	  
 	.banner {
 		font-family: Tahoma, sans-serif;
 		background: black;
