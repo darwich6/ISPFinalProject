@@ -38,7 +38,7 @@
 		font-size: 13px;
 		overflow-y:scroll;
 		height:350px;
-		margin-left: 26%;
+		margin-left: 27%;
 	}
 	
 	th {
@@ -64,7 +64,7 @@
 		font-family: Tahoma, sans-serif;
 		font-size: 13px;
 		/*height:500px;*/
-		margin-left: 22%;
+		margin-left: 16%;
 		display: inline-block;
 	}
 	.userInputForm{
