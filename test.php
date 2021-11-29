@@ -132,7 +132,9 @@
 	.form-group {
 		display: inline;
 	}
-
+       .modal-open[style] {
+        padding-right: 0px !important;
+        }
 
   </style>
 </head>
