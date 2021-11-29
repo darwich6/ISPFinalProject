@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <h1>
-		<center>
-     	<span style="color:#999999">CS-Systems</span>
-     	<span style="color:#000000">Course Tracker 2021</span>
-		</center>	
-    </h1>
   <title>CS Course Tracker 2021</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <style>  
+	.banner {
+		font-family: Tahoma, sans-serif;
+		background: black;
+		margin-top: 0;
+		padding: 20px;
+	}
 	
-	body{
+	body {
 		font-family: monospace;
 	}
 
@@ -24,7 +24,7 @@
 	.courseListDiv {
 		margin-bottom: 10px;
 		text-align: left;
-		font-family: monospace;
+		font-family: Tahoma, sans-serif;
 		font-size: 13px;
 		overflow-y: scroll;
 		height:350px;
@@ -34,11 +34,11 @@
 		padding: auto;
 		text-align: left;
 		width:47%;
-		font-family: monospace;
+		font-family: Tahoma, sans-serif;
 		font-size: 13px;
 		overflow-y:scroll;
 		height:350px;
-		margin-left: 27%;
+		margin-left: 26%;
 	}
 	
 	th {
@@ -61,16 +61,16 @@
 		padding: auto;
 		text-align: center;
 		/*width: 30%;*/
-		font-family: monospace;
+		font-family: Tahoma, sans-serif;
 		font-size: 13px;
 		/*height:500px;*/
-		margin-left: 16%;
+		margin-left: 22%;
 		display: inline-block;
 	}
 	.userInputForm{
 		text-align: center;
 		width: 33%;
-		font-family: monospace;
+		font-family: Tahoma, sans-serif;
 		font-size: 13px;
 		height:450px;
 		margin-left: 32%;
@@ -78,20 +78,20 @@
 	}
 	
 	label{
-		font-family: monospace;
+		font-family: Tahoma, sans-serif;
 		font-size: 13px;
 	}
 	
 	h2{
-		font-family: monospace;
+		font-family: Tahoma, sans-serif;
 	}
 
-	h5{
-		font-family: monospace;
+	h4{
+		font-family: Tahoma, sans-serif;
 	}
 
 	p{
-		font-family: monospace;
+		font-family: Tahoma, sans-serif;
 		font-size: 13px;
 	}
 
@@ -108,8 +108,8 @@
 	.progress-child1{
 		padding: auto;
 		width:50%;
-		font-family: monospace;
-		font-size: 13px;
+		font-family: Tahoma, sans-serif;
+		font-size: 14px;
 		height:500px;
 		display: inline-block;
 	}
@@ -117,8 +117,8 @@
 	.progress-child2{
 		padding: auto;
 		width:50%;
-		font-family: monospace;
-		font-size: 13px;
+		font-family: Tahoma, sans-serif;
+		font-size: 14px;
 		height:500px;
 		display: inline-block;
 		float:right;
@@ -133,6 +133,12 @@
   </style>
 </head>
 <body>
+    <h1 class="banner">
+		<center>
+     	    <span style="color:#999999">CS-Systems</span>
+     	    <span style="color:#FFFFFF">Course Tracker 2021</span>
+		</center>	
+    </h1>
     <div class="top">
 	    <h4> Authors: Ahmed Darwich, Zach Pallota, John Dailey </h4>
     </div>
@@ -154,10 +160,10 @@
                                 <th>Course Name</th>
                                 <th>Credits</th>
                             </tr>
-<?php
+		<?php
 		$servername = "localhost";
 		$username = "root";
-		$password = "";
+		$password = "root";
 		$dbname = "isp";
 
 
@@ -216,14 +222,12 @@
 	} else {
 		echo "No Courses Found";
 	}
-?>
+	?>
 
                     </div>
                     <div class="form-group">
                         <label for="subjectfind">Search Subject:</label>
-                        <input type="text" class="" id="subjectfind" onkeyup="narrowListSubject()" placeholder="Enter Subject" name="subjectfind">
-						<label for="namefind">Search Name:</label>
-                        <input type="text" class="" id="namefind" onkeyup="narrowListName()" placeholder="Enter Name" name="namefind">
+                        <input type="text" class="" id="subjectfind" onkeyup="narrowList()" placeholder="Enter Subject" name="subjectfind">
                     </div>
                 </div>
             </div>
@@ -502,7 +506,7 @@ function fillFields(row)
 	}
 }
 
-function narrowListSubject() 
+function narrowList() 
 {
   var input, filter, table, tr, td, i, txtValue;
   input = document.getElementById("subjectfind");
@@ -524,31 +528,6 @@ function narrowListSubject()
     }       
   }
 }
-
-function narrowListName() 
-{
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("namefind");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("courseList");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) 
-  {
-    td = tr[i].getElementsByTagName("td")[2];
-    if (td) 
-	{
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) 
-	  {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }       
-  }
-}
-
-
 
 function toggleOptions() {
   var x = document.getElementById("userInputForm");
