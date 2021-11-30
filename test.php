@@ -239,7 +239,7 @@
 ?>
 	                
                 </div>
-			    <form action="http://localhost/isp/TermProject/testmodal.php" name="coursetrackerform" method="post">
+			    <form action="http://localhost/isp/TermProject/test.php" name="coursetrackerform" method="post">
                     <div class="form-group">
                         <label for="subjectfind">Search Subject:</label>
                         <input type="text" class="" id="subjectfind" onkeyup="narrowListSubject()" placeholder="Enter Subject" name="subjectfind">
@@ -340,59 +340,59 @@
 
 	<div id="userInputForm" class="userInputForm">
 		<h2>GenEd Credit Options<h2>
-		<p>Select where credit is assigned here for GenEd courses. If these are incorrect your course may be improperly tallied. 
-		Non-GenEd courses must be all zeroes.</p>
+		<p>Select where credit is assigned here for GenEd courses. Enter 1 or 0. Non-GenEd courses must be all zeroes. 
+		If these are incorrect your course may be improperly tallied.</p>
 			<div class="form-group">
 	  			<label for="req1">Mathematics, Statistics, and Logic:</label>
-	  			<input type="text" class="form-control" id="req1" placeholder="Enter 1 or 0" name="req1" maxlength="1">
+	  			<input type="text" class="form-control" id="req1" value="0" name="req1" maxlength="1">
 			</div>
 			<div class="form-group">
 	  			<label for="req2">Speaking:</label>
-	  			<input type="text" class="form-control" id="req2" placeholder="Enter 1 or 0" name="req2" maxlength="1">
+	  			<input type="text" class="form-control" id="req2" value="0" name="req2" maxlength="1">
 			</div>
 			<div class="form-group">
 	  			<label for="req3">Writing First Course:</label>
-	  			<input type="text" class="form-control" id="req3" placeholder="Enter 1 or 0" name="req3" maxlength="1">
+	  			<input type="text" class="form-control" id="req3" value="0" name="req3" maxlength="1">
 			</div>
 			<div class="form-group">
 	  			<label for="req4">Writing Second Course:</label>
-	  			<input type="text" class="form-control" id="req4" placeholder="Enter 1 or 0" name="req4" maxlength="1">
+	  			<input type="text" class="form-control" id="req4" value="0" name="req4" maxlength="1">
 			</div>
 			<div class="form-group">
 	  			<label for="req5">Fine Arts and Humanities:</label>
-	  			<input type="text" class="form-control" id="req5" placeholder="Enter 1 or 0" name="req5" maxlength="1">
+	  			<input type="text" class="form-control" id="req5" value="0" name="req5" maxlength="1">
 			</div>
 			<div class="form-group">
 	  			<label for="req6">Humanities:</label>
-	  			<input type="text" class="form-control" id="req6" placeholder="Enter 1 or 0" name="req6" maxlength="1">
+	  			<input type="text" class="form-control" id="req6" value="0" name="req6" maxlength="1">
 			</div>
 			<div class="form-group">
 	  			<label for="req7">Natural Science:</label>
-	  			<input type="text" class="form-control" id="req7" placeholder="Enter 1 or 0" name="req7" maxlength="1">
+	  			<input type="text" class="form-control" id="req7" value="0" name="req7" maxlength="1">
 			</div>
 			<div class="form-group">
 	  			<label for="req8">Natural Science w/Lab:</label>
-	  			<input type="text" class="form-control" id="req8" placeholder="Enter 1 or 0" name="req8" maxlength="1">
+	  			<input type="text" class="form-control" id="req8" value="0" name="req8" maxlength="1">
 			</div>
 			<div class="form-group">
 	  			<label for="req9">Social Science:</label>
-	  			<input type="text" class="form-control" id="req9" placeholder="Enter 1 or 0" name="req9" maxlength="1">
+	  			<input type="text" class="form-control" id="req9" value="0" name="req9" maxlength="1">
 			</div>
 			<div class="form-group">
 	  			<label for="req10">Domestic Diversity:</label>
-	  			<input type="text" class="form-control" id="req10" placeholder="Enter 1 or 0" name="req10" maxlength="1">
+	  			<input type="text" class="form-control" id="req10" value="0" name="req10" maxlength="1">
 			</div>
 			<div class="form-group">
 	  			<label for="req11">Global Diversity:</label>
-	  			<input type="text" class="form-control" id="req11" placeholder="Enter 1 or 0" name="req11" maxlength="1">
+	  			<input type="text" class="form-control" id="req11" value="0" name="req11" maxlength="1">
 			</div>
 			<div class="form-group">
 	  			<label for="req12">Capstone:</label>
-	  			<input type="text" class="form-control" id="req12" placeholder="Enter 1 or 0" name="req12" maxlength="1">
+	  			<input type="text" class="form-control" id="req12" value="0" name="req12" maxlength="1">
 			</div>
 			<div class="form-group">
 	  			<label for="req13">Complex Issues Facing Society:</label>
-	  			<input type="text" class="form-control" id="req13" placeholder="Enter 1 or 0" name="req13" maxlength="1">
+	  			<input type="text" class="form-control" id="req13" value="0" name="req13" maxlength="1">
 			</div>
   		    </form>
 	</div>
