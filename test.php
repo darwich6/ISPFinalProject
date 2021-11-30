@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>CS Course Tracker 2021</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <style>    
-	html {
+  <style> 
+    html {
 		overflow-y: scroll;
-	} 
-	  
+	}
+  
 	.banner {
 		font-family: Tahoma, sans-serif;
 		background: black;
@@ -26,7 +26,7 @@
 	}
   
 	.courseListDiv {
-		margin-bottom: 10px;
+		margin-bottom: 15px;
 		text-align: left;
 		font-family: Tahoma, sans-serif;
 		font-size: 13px;
@@ -42,7 +42,7 @@
 		font-size: 13px;
 		overflow-y:scroll;
 		height:350px;
-		margin-left: 27%;
+		//margin-left: 26%;
 	}
 	
 	th {
@@ -68,7 +68,7 @@
 		font-family: Tahoma, sans-serif;
 		font-size: 13px;
 		/*height:500px;*/
-		margin-left: 16%;
+		//margin-left: 22%;
 		display: inline-block;
 	}
 	.userInputForm{
@@ -77,7 +77,7 @@
 		font-family: Tahoma, sans-serif;
 		font-size: 13px;
 		height:450px;
-		margin-left: 32%;
+		//margin-left: 32%;
 		display: none;
 	}
 	
@@ -132,10 +132,10 @@
 	.form-group {
 		display: inline;
 	}
-       .modal-open[style] {
+	
+	.modal-open[style] {
         padding-right: 0px !important;
-        }
-
+    }
   </style>
 </head>
 <body>
@@ -148,7 +148,9 @@
     <div class="top">
 	    <h4> Authors: Ahmed Darwich, Zach Pallota, John Dailey </h4>
     </div>
-    <h2 style="margin-left: 45%;">My Courses</h2>
+	<center>
+        <h2 style="">My Courses</h2>
+    </center>
 	<!-- div class tl is now courseListDiv -->	
     <div class="modal fade" id="search" role="dialog">
         <div class="modal-dialog modal-lg">
@@ -181,6 +183,12 @@
 	}
 
 	if(isset($_POST["add"]))
+	{
+		mysqli_query($conn, "insert into username values('$_POST[subjectnumber]','$_POST[coursenumber]','$_POST[coursename]','$_POST[coursecredits]','$_POST[req1]','$_POST[req2]','$_POST[req3]','$_POST[req4]','$_POST[req5]','$_POST[req6]','$_POST[req7]','$_POST[req8]','$_POST[req9]','$_POST[req10]','$_POST[req11]','$_POST[req12]','$_POST[req13]')");
+		header("refresh:0;");
+	}
+
+	if(isset($_POST["addselected"]))
 	{
 		mysqli_query($conn, "insert into username values('$_POST[subjectnumber]','$_POST[coursenumber]','$_POST[coursename]','$_POST[coursecredits]','$_POST[req1]','$_POST[req2]','$_POST[req3]','$_POST[req4]','$_POST[req5]','$_POST[req6]','$_POST[req7]','$_POST[req8]','$_POST[req9]','$_POST[req10]','$_POST[req11]','$_POST[req12]','$_POST[req13]')");
 		header("refresh:0;");
@@ -228,13 +236,19 @@
 	} else {
 		echo "No Courses Found";
 	}
-	?>
-
-                    </div>
+?>
+	                
+                </div>
+			    <form action="http://localhost/isp/TermProject/testmodal.php" name="coursetrackerform" method="post">
                     <div class="form-group">
                         <label for="subjectfind">Search Subject:</label>
-                        <input type="text" class="" id="subjectfind" onkeyup="narrowList()" placeholder="Enter Subject" name="subjectfind">
+                        <input type="text" class="" id="subjectfind" onkeyup="narrowListSubject()" placeholder="Enter Subject" name="subjectfind">
                     </div>
+					<div class="form-group">
+						<label for="namefind">Search Name:</label>
+                        <input type="text" class="" id="namefind" onkeyup="narrowListName()" placeholder="Enter Name" name="namefind">
+                    </div>
+					<button style="margin-left: 12%;" type="submit" name="addselected" class="btn btn-secondary">Add Course</button>
                 </div>
             </div>
             </div>
@@ -244,7 +258,7 @@
             </div> 
         </div>
     </div>
-	
+	<center>
 	<div class='myCoursesDiv'>
 		<table class="table table-striped" id="mycourses">
     		<tr class="myCoursesTableRow">
@@ -289,8 +303,11 @@
 			$conn->close();
 		?>
   	</div>
+	</center>
 	<div style="clear:both;"></div>
-	<form action="http://localhost/isp/TermProject/test.php" name="coursetrackerform" method="post">
+	
+	<center>
+	
 	<div class="userSearchForm">
   		<h2>Course</h2>
 		<div class="">
@@ -317,7 +334,7 @@
 			<button type="submit" name="delete" class="btn btn-secondary">Delete Course</button>
 			<button type="submit" name="clear" class="btn btn-secondary" onclick="return confirm('Are you sure?')">Clear Courses</button>
 			<button type="button" name="progress" class="btn btn-secondary" data-toggle="modal" data-target="#progressSheet">Show Progress</button>
-			<button type="button" id="optionsbtn" name="options" class="btn btn-secondary" onclick="toggleOptions()">Show Options</button>
+			<button type="button" id="optionsbtn" name="options" class="btn btn-secondary" onclick="toggleOptions()">Show GenEd Options</button>
 		</div>
 	</div>
 
@@ -377,9 +394,11 @@
 	  			<label for="req13">Complex Issues Facing Society:</label>
 	  			<input type="text" class="form-control" id="req13" placeholder="Enter 1 or 0" name="req13" maxlength="1">
 			</div>
-  		</form>
+  		    </form>
 	</div>
-
+	
+	</center>
+	
 </div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -512,7 +531,7 @@ function fillFields(row)
 	}
 }
 
-function narrowList() 
+function narrowListSubject() 
 {
   var input, filter, table, tr, td, i, txtValue;
   input = document.getElementById("subjectfind");
@@ -535,15 +554,38 @@ function narrowList()
   }
 }
 
+function narrowListName() 
+{
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("namefind");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("courseList");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) 
+  {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) 
+	{
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) 
+	  {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+
 function toggleOptions() {
   var x = document.getElementById("userInputForm");
   var btn = document.getElementById("optionsbtn");
   if (x.style.display === "block") {
     x.style.display = "none";
-	btn.innerHTML = ("Show Options");
+	btn.innerHTML = ("Show GenEd Options");
   } else {
     x.style.display = "block";
-	btn.innerHTML = ("Hide Options");
+	btn.innerHTML = ("Hide GenEd Options");
   }
 }
 
